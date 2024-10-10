@@ -1,0 +1,57 @@
+.container{
+    width: 35%;
+}
+
+.right-side {
+    background-color: oklch(0.76 0.09 200.03);
+    margin: 0;
+    padding: 0;
+    flex-grow: 1; /* Allow it to grow and take available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: sticky; /* Make the right side sticky */
+    top: 0; /* This sets the distance from the top of the viewport */
+    height: 100vh; /* Full viewport height */
+}
+
+.mainImg {
+    width: 320px; /* Set the width of the image */
+    height: 320px; /* Set the height of the image */
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Cover the space without distortion */
+    margin-bottom: 20px; /* Space below the image */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a soft shadow for depth */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.mainImg:hover {
+    transform: scale(1.05); /* Slightly scale up the image on hover for a charming effect */
+}
+
+/* Media query for tablets */
+@media (max-width: 1080px) {
+    .mainImg {
+        width: 270px; /* Smaller width for tablets */
+        height: 270px; /* Smaller height for tablets */
+    }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 760px) {
+    .mainImg {
+        width: 200px; /* Smaller width for mobile devices */
+        height: 200px; /* Smaller height for mobile devices */
+    }
+}
+
+.icons {
+    display: flex;
+    flex-direction: column; /* Stack icons vertically */
+    align-items: center; /* Center icons horizontally */
+}
+
+.icon {
+    margin: 5px 0; /* Space between icons */
+}

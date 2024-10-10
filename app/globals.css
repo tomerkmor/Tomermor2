@@ -1,27 +1,74 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+body {
+  width: 100%;
+  height: 100%;
+  cursor: url('/path/to/your/cursor.cur'), auto; /* Custom cursor */
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  min-width: 720px;
+}
+
+.dark {
+  background-color: oklch(0.1 0.04 0);
+  color: white;
+}
+
+
+.light{
+  background-color: oklch(0.96 0.01 0);
+  color: black;
+}
+
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background-color: oklch(0.76 0.09 200.03); /* or any visible color */
+  --your-text-color: #000; /* or any visible color */
+  --your-button-background: oklch(0.76 0.09 200.03); /* Button background color */
+  --your-button-hover-background: #0056b3; /* Button hover color */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.container {
+  display: flex; /* Use flexbox */
+  height: 100vh;
+  justify-content: space-between; /* Space between columns */
+  flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+h1 {
+  font-size: 6rem;
+  padding-top: 4rem;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+h2{
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+  padding-top: 4rem;
+}
+
+h4{
+  margin: 1rem 0 0.15rem 0;
+  
+}
+
+ul, ol {
+  list-style-type: none; /* Removes bullet points or numbering */
+  padding: 0;            /* Optional: Removes padding */
+  margin: 0;             /* Optional: Removes margin */
+}
+
+a{
+  text-decoration: none;
+}
+
+svg {
+  transition: transform 0.5s ease, fill 0.3s ease; /* Add smooth transition for fill color */
+  margin-right: 1rem;
+}
+
+svg:hover {
+  transform: scale(1.3); /* Scale on hover */
+}
+
+.svg-inline--fa:hover path {
+  fill: oklch(0.76 0.09 200.03); /* Set your desired hover color */
 }

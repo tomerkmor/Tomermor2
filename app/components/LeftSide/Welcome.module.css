@@ -1,0 +1,22 @@
+.container{
+    font-size: 3rem;
+    display: flex;
+    flex-direction: column;
+    width:80%;
+    margin: 10rem 2rem;
+    min-height: 50vh;
+}
+
+.title {
+    margin: 0 0 0.25rem 0.25rem;
+}
+
+.sub-title{
+    font-size: 1.5rem;
+    margin: 0.25rem
+}
+
+.description{
+    font-size: 1.25rem;
+    margin: 0.5rem 0.25rem;
+}

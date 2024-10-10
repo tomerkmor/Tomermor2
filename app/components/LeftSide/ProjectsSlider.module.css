@@ -1,0 +1,54 @@
+.projects {
+  margin-left: 2rem;
+  margin-bottom: 10rem;
+}
+
+.container {
+  margin-top: 2rem;
+  margin-right: 2rem;
+  display: flex;
+  align-items: center; /* Vertically align items */
+  justify-content: space-between; /* Space between items */
+}
+
+.container > div {
+  display: flex;
+  align-items: center; /* Vertically align button and image */
+  margin: 0 0.5rem; /* Adjust horizontal margin if needed */
+}
+
+.project {
+  min-width: 200px;
+  text-align: center;
+    padding: 4rem 1rem;
+  border-radius: 1rem;
+  flex-direction: column;
+
+  width: 22rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: oklch(0.76 0.09 200.03);
+  color: #221c18;
+  box-shadow: 0 2px 8px rgba(35, 34, 34, 0.6);
+  border-radius: 6px;
+}
+
+.title{
+    margin: 0;
+}
+
+.button{
+    background-color: oklch(0.95 0.01 0);
+    border: 2px solid black;
+    border-radius: 6px;
+    margin:2rem 0 0 0;
+    padding: 0.5rem;
+    font-weight: bold;
+    
+}
+
+.button:hover {
+    background-color: oklch(0.88 0.01 0);
+}
