@@ -1,17 +1,19 @@
 .header {
-  position: sticky; /* Keeps the header at the top */
+  position: sticky;
   top: 0;
-  width: 100%; /* Takes the full width of the parent */
-  height: 4vh; /* Sets the header height */
-  display: flex; /* Flexbox for horizontal layout */
-  align-items: center; /* Center items vertically */
-  justify-content: space-between; /* Space items evenly */
-  padding: 2rem; /* Adjust padding */
-  font-size: 16px;
-  box-sizing: border-box; /* Ensures padding is included in height calculation */
+  width: 100%;
+  height: 4vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 2rem 1.8rem;
-  
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: #fff; /* Optional: Ensures the header is not transparent */
+  z-index: 1000; /* Ensures the header stays above the content */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add subtle shadow */
 }
+
 
 .header .light{
   background-color: oklch(0.94 0.01 0);
@@ -82,4 +84,17 @@
 .navigation p:hover {
   color: oklch(0.00 0.5 0); /* Change to a contrasting color on hover */
   transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+
+.button {
+  background: transparent; /* Remove the button background */
+  border: none; /* Remove the default border, if any */
+  color: inherit; /* Inherit text color from parent */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+.button:hover {
+  /* Optional: Add hover effect if needed */
+  opacity: 0.7; /* Slightly dim on hover */
 }

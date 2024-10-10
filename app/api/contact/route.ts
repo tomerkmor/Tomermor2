@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
       pass: process.env.GMAIL_APP_PASSWORD, // Use your app password here
     },
   });
-  console.log("Using user:", process.env.MONGODB_URI);
+
   console.log("Using user:", process.env.GMAIL_USER);
   console.log("Using app password:", process.env.GMAIL_APP_PASSWORD);
 

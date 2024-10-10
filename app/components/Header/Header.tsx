@@ -72,31 +72,32 @@ const Header: React.FC = () => {
         </button>
         <p
           onClick={() => scrollToSection("home")}
-          className={activeSection === "home" ? styles.active : ""}
+          className={`${activeSection === "home" ? styles.active : ""} ${styles.button}`}
         >
           Home
         </p>
         <p
           onClick={() => scrollToSection("about")}
-          className={activeSection === "about" ? styles.active : ""}
+          className={`${activeSection === "about" ? styles.active : ""} ${styles.button}`}
         >
           About
         </p>
         <p
           onClick={() => scrollToSection("projects")}
-          className={activeSection === "projects" ? styles.active : ""}
+          className={`${activeSection === "projects" ? styles.active : ""} ${styles.button}`}
         >
           Projects
         </p>
         <p
           onClick={() => scrollToSection("contact")}
-          className={activeSection === "contact" ? styles.active : ""}
+          className={`${activeSection === "contact" ? styles.active : ""} ${styles.button}`}
         >
           Contact
         </p>
       </div>
     </header>
   );
+  
 };
 
 export default Header;

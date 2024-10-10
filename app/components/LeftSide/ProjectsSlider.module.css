@@ -7,24 +7,34 @@
   margin-top: 2rem;
   margin-right: 2rem;
   display: flex;
-  align-items: center; /* Vertically align items */
+  align-items: stretch; /* Ensure children stretch to the same height */
   justify-content: space-between; /* Space between items */
 }
 
-.container > div {
+.imageContainer {
+  position: relative;
+  width: 90%;
+  height: 80vh; /* Fixed height for consistent image size */
   display: flex;
-  align-items: center; /* Vertically align button and image */
-  margin: 0 0.5rem; /* Adjust horizontal margin if needed */
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Prevents overflow */
+  z-index: 1; /* Lower than the header */
+}
+
+.projectImage {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  max-height: 80vh; /* Ensure the image does not exceed container height */
+  border-radius: 6px;
 }
 
 .project {
   min-width: 200px;
+  width: 40%; /* Adjust width as needed */
   text-align: center;
-    padding: 4rem 1rem;
+  padding: 4rem 1rem;
   border-radius: 1rem;
-  flex-direction: column;
-
-  width: 22rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,23 +42,63 @@
   background: oklch(0.76 0.09 200.03);
   color: #221c18;
   box-shadow: 0 2px 8px rgba(35, 34, 34, 0.6);
+  margin-left: 1rem; /* Add space between image and project div */
+}
+
+
+@media (max-width: 768px) {
+  .project {
+    min-height: 200px; /* Adjust for smaller screens */
+    width: 90%; /* Adjust width for smaller screens */
+  }
+}
+
+.title {
+  margin: 0;
+}
+
+/* Adjust button positioning */
+.imageContainer button {
+  position: absolute; /* Position buttons absolutely within the container */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for exact center */
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+  border: 2px solid black; /* Add border for better visibility */
+  border-radius: 6px; /* Rounded corners */
+  width: 50px; /* Fixed width for square shape */
+  height: 50px; /* Fixed height for square shape */
+  cursor: pointer; /* Change cursor to pointer */
+  z-index: 2; /* Ensure buttons are above the image */
+  display: flex; /* Use flexbox to center content */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  font-size: 1.5rem; /* Adjust font size if necessary */
+}
+
+/* Position the previous button on the left */
+.imageContainer button:first-child {
+  left: 10px; /* Position it 10px from the left */
+}
+
+/* Position the next button on the right */
+.imageContainer button:last-child {
+  right: 10px; /* Position it 10px from the right */
+}
+
+.imageContainer button:hover {
+  background-color: oklch(0.88 0.01 0); /* Change background color on hover */
+}
+
+
+.button {
+  background-color: oklch(0.95 0.01 0);
+  border: 2px solid black;
   border-radius: 6px;
-}
-
-.title{
-    margin: 0;
-}
-
-.button{
-    background-color: oklch(0.95 0.01 0);
-    border: 2px solid black;
-    border-radius: 6px;
-    margin:2rem 0 0 0;
-    padding: 0.5rem;
-    font-weight: bold;
-    
+  margin: 2rem 0 0 0;
+  padding: 0.5rem;
+  font-weight: bold;
 }
 
 .button:hover {
-    background-color: oklch(0.88 0.01 0);
+  background-color: oklch(0.88 0.01 0);
 }
