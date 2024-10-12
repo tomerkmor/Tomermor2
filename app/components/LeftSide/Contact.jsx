@@ -1,8 +1,9 @@
+import { forwardRef } from "react";
 import ContactForm from "./ContactForm";
-import styles from "./Projects.module.css";
-const Contact: React.FC = () => {
+
+const Contact = forwardRef((props, ref) => {
   return (
-    <section style={{margin:"2rem"}} id="contact">
+    <section ref={ref} style={{ margin: "2rem" }} id="contact">
       <h2>Keep in touch.</h2>
       <p>
         If you have any questions or just want to say hi, feel free to reach out
@@ -11,6 +12,6 @@ const Contact: React.FC = () => {
       <ContactForm />
     </section>
   );
-};
+});
 
 export default Contact;

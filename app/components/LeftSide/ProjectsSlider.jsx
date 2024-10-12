@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { forwardRef, useState } from "react";
 import dummyData from "../../data/projectsImgs";
 import styles from "./ProjectsSlider.module.css";
 
-const ProjectsSlider: React.FC = () => {
+const ProjectsSlider = forwardRef( (props,ref) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
@@ -19,24 +19,24 @@ const ProjectsSlider: React.FC = () => {
     dummyData[currentIndex];
 
   return (
-    <section className={styles.projects} id="projects">
+    <section ref={ref} className={styles.projects} id="projects">
       <h2>Projects.</h2>
       <div className={styles.container}>
         <div className={styles.imageContainer}>
-        <button onClick={handlePrevious} disabled={currentIndex === 0}>
-          -
-        </button>
+          <button onClick={handlePrevious} disabled={currentIndex === 0}>
+            -
+          </button>
           <img
             src={img}
             alt={title}
             className={styles.projectImage} // Add class for styling
           />
-        <button
-          onClick={handleNext}
-          disabled={currentIndex === dummyData.length - 1}
-        >
-          +
-        </button>
+          <button
+            onClick={handleNext}
+            disabled={currentIndex === dummyData.length - 1}
+          >
+            +
+          </button>
         </div>
 
         <div className={styles.project}>
@@ -54,13 +54,13 @@ const ProjectsSlider: React.FC = () => {
               <li key={index}>{con}</li>
             ))}
           </ul>
-          <button className={styles.button}>
-            <a href={link}>Check It Out!</a>
-          </button>
+          <a href={link} className={styles.button}>
+            Check It Out!
+          </a>
         </div>
       </div>
     </section>
   );
-};
+});
 
 export default ProjectsSlider;

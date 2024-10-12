@@ -1,0 +1,358 @@
+/* ................... */
+
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+  margin-right: 4rem;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.navText {
+  display: inline-block;
+  font-size: 1.25rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.navIcon {
+  display: none;
+  font-size: 1.5rem;
+  color: #fff;
+  margin-left: 0.5rem;
+}
+
+.navItem:hover .navIcon {
+  cursor: pointer;
+}
+
+.logo {
+  margin-left: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.logo img {
+  width: 7rem;
+  height: 7rem;
+  object-fit: contain;
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.5));
+}
+
+.logo img:hover {
+  transform: scale(1.2); /* Scale the image on hover */
+  transition: transform 0.3s ease; /* Apply transition to the transform property */
+}
+
+.img-text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileMenuToggle {
+  display: none;
+  cursor: pointer;
+  font-size: 2rem;
+  color: #fff;
+  margin-right: 3.5rem;
+}
+
+.nav {
+  display: flex;
+  margin-right: 3.5rem;
+}
+
+.nav ul {
+  display: flex;
+}
+
+/*
+@media (max-width: 800px) {
+  .nav ul {
+    display: none;
+
+  .navText {
+    display: none; 
+  }
+
+  .enable{
+    display: flex;
+  }
+
+  .navIcon {
+    display: inline-block; 
+  }
+
+
+  .mobileMenuToggle {
+    display: block;
+  }
+
+  .nav.active ul {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 0; 
+    left: 0; 
+    width: 50%;
+    background-color: #333;
+    gap: 0.5rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 999; 
+    padding-top: 4rem; 
+  }
+  
+
+  .navItem {
+    justify-content: center; 
+    padding: 1rem;
+    text-align: center;
+    border-top: 1px solid #444; 
+    color: red;
+  }
+  
+  .navItem:first-child {
+    border-top: none;
+  }
+  
+  .navItem {
+    width: 100%; 
+    justify-content: center;
+  }
+}
+
+
+
+*/
+.selected {
+  background: linear-gradient(90deg, #ff8a05, #f9b331);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+.navItem:hover,
+.selected:hover,
+.selected:active {
+  cursor: pointer;
+  background: linear-gradient(90deg, #ff8a05, #f9b331);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 18px rgba(248, 190, 42, 0.8);
+}
+
+.header {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+  z-index: 1000; /* Ensure the header stays on top */
+}
+
+nav .item {
+  margin-right: 3rem;
+  text-decoration: none;
+}
+
+.nav .item:hover,
+.nav .item:active {
+  cursor: pointer;
+  background: linear-gradient(90deg, #ff8a05, #f9b331);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 18px rgba(248, 190, 42, 0.8);
+}
+
+.header .mobileMenuToggle {
+  padding: 5px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--textColor);
+  visibility: hidden;
+  opacity: 0;
+  font-size: 1.8rem;
+}
+
+.header,
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav a {
+  font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 835px) {
+  .mobileMenuToggle {
+    display: block;
+  }
+  .nav a {
+    display: none; /* Show links normally */
+  }
+
+  .header .mobileMenuToggle {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .header .mobileMenuToggle {
+    visibility: visible;
+    opacity: 1;
+    font-size: 2rem;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: #fff;
+    position: relative;
+    z-index: 10;
+  }
+
+  header .responsive_nav {
+    transform: 100vh;
+  }
+
+  .header nav {
+    background: linear-gradient(to top, #59453c, #8f3a09);
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    transition: 0.7s;
+  }
+
+  /* Close button styles */
+  .nav .nav-close-btn {
+    display: block;
+    position: absolute;
+    top: 3rem;
+    right: 0.5rem;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  /* When menu is active, change the menu style */
+  .nav.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 999;
+    gap: 2rem;
+  }
+
+  .nav.active a {
+    display: block; /* Show links when menu is active */
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+    font-size: xx-large;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav.active.selected {
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .nav a {
+    display: inline-block; /* Show links normally */
+  }
+
+  .header .mobileMenuToggle {
+    display: none; /* Hide mobile menu button */
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .mobileMenuToggle {
+    margin-right: 1rem;
+  }
+}
+
+.pop-up-message {
+  color: #ff9b05;
+  position: fixed; /* Position relative to the viewport */
+  left: 50%; /* Center horizontally */
+  margin-top: 20%;
+  transform: translateX(-50%); /* Adjust for exact centering */
+  background-color: #282c34;
+  padding: 3rem;
+  border-radius: 10px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+  z-index: 100000; /* Ensure it appears above other elements */
+  max-width: 80%;
+  text-align: center;
+  opacity: 1;
+  animation: slideIn 0.5s ease-out; /* Animation for showing the message */
+  border: 3px solid #f9572a;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Fade-out animation for disappearing */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px); /* Slide upwards */
+  }
+}
+
+/*
+linear-gradient(90deg, #f9572a, #ff9b05)
+*/
+
+

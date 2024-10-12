@@ -1,13 +1,21 @@
+html {
+  font-family: 'Quicksand', sans-serif;
+  background: radial-gradient(#282c34, #282c34);
+}
+
 body {
   width: 100%;
   height: 100%;
   cursor: url('/path/to/your/cursor.cur'), auto; /* Custom cursor */
   padding: 0;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
-  min-width: 720px;
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+  background: radial-gradient(#282c34, #282c34);
+  color: #fff;
 }
 
+/*
 .dark {
   background-color: oklch(0.1 0.04 0);
   color: white;
@@ -18,14 +26,16 @@ body {
   background-color: oklch(0.96 0.01 0);
   color: black;
 }
+*/
 
-
+/*
 :root {
-  --background-color: oklch(0.76 0.09 200.03); /* or any visible color */
-  --your-text-color: #000; /* or any visible color */
-  --your-button-background: oklch(0.76 0.09 200.03); /* Button background color */
-  --your-button-hover-background: #0056b3; /* Button hover color */
+  --background-color: oklch(0.76 0.09 200.03); 
+  --your-text-color: #000;
+  --your-button-background: oklch(0.76 0.09 200.03); 
+  --your-button-hover-background: #0056b3; 
 }
+*/
 
 .container {
   display: flex; /* Use flexbox */
@@ -60,15 +70,13 @@ a{
   text-decoration: none;
 }
 
-svg {
-  transition: transform 0.5s ease, fill 0.3s ease; /* Add smooth transition for fill color */
-  margin-right: 1rem;
-}
 
-svg:hover {
-  transform: scale(1.3); /* Scale on hover */
-}
 
-.svg-inline--fa:hover path {
-  fill: oklch(0.76 0.09 200.03); /* Set your desired hover color */
+@media only screen and (max-width: 550px) {
+  body{
+    text-align: center;
+  }
+  h1,h2{
+    font-size: 3rem;
+  }
 }

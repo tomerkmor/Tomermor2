@@ -1,0 +1,53 @@
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+  min-width: 30rem;
+  padding: 0;
+  z-index: 2;
+  background: #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  animation: slide-down-fade-in 0.3s ease-out forwards;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+
+  color: oklch(0.76 0.09 200.03);
+  border: 3px solid oklch(0.76 0.09 200.03);
+  font-family: sans-serif;
+  border-bottom: 10px solid;
+}
+
+@keyframes slide-down-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-message {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

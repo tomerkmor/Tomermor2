@@ -54,9 +54,9 @@ const Header: React.FC = () => {
 
   let cssClasses = styles.header;
   if (theme === "light") {
-    cssClasses += " light";
+    cssClasses = `${styles.header} ${styles.light}`;
   } else {
-    cssClasses += " dark";
+    cssClasses = `${styles.header} ${styles.dark}`;
   }
 
   return (

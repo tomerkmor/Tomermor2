@@ -1,16 +1,18 @@
 .socialIcons {
-    display: flex; /* Align items in a row */
-    gap: 15px; /* Adjust space between icons */
-  }
+  margin-top: 1rem;
+  margin-left: 1rem;
+  display: flex; /* Align items in a row */
+  gap: 15px; /* Adjust space between icons */
+}
+
+.socialIcon {
   
-  .socialIcon {
-    fill: currentColor; /* This allows the icon color to inherit the text color */
-    transition: transform 0.3s; /* Add transition for hover effects */
-    color: white; /* Set the default color of the icon to white */
-    text-decoration: none; /* Remove underline from links */
-  }
-  
-  .socialIcon:hover {
-    transform: scale(1.2); /* Scale the icon on hover */
-  }
-  
+  fill: currentColor; /* This allows the icon color to inherit the text color */
+  transition: transform 0.3s; /* Add transition for hover effects */
+  color: white; /* Set the default color of the icon to white */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.socialIcon:hover {
+  transform: scale(1.2); /* Scale the icon on hover */
+}

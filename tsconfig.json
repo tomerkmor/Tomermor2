@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/UI/Modal.jsx", "app/components/LeftSide/ContactForm.jsx", "app/page.jsx", "app/components/LeftSide/LeftSide.jsx", "app/components/LeftSide/Welcome.jsx", "app/components/LeftSide/AboutMe.jsx", "app/components/LeftSide/Contact.jsx", "app/components/LeftSide/ProjectsSlider.jsx"],
   "exclude": ["node_modules"]
 }

@@ -1,4 +1,5 @@
-.header {
+
+/*.header {
   position: sticky;
   top: 0;
   width: 100%;
@@ -9,21 +10,33 @@
   padding: 2rem 1.8rem;
   font-size: 16px;
   box-sizing: border-box;
-  background-color: #fff; /* Optional: Ensures the header is not transparent */
-  z-index: 1000; /* Ensures the header stays above the content */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add subtle shadow */
+  background-color: #fff;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+} */
+
+.header{
+  width: 100%;
+  height: 200px; /* You can adjust this as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200" preserveaspectratio="none" fill="%23FFD700"%3E%3Cpath d="M0 100 Q 300 150 600 100 T 1200 100 V 200 H 0 Z" /%3E%3C/svg%3E') no-repeat center center;
+  background-size: cover;
+  position: relative;
 }
 
-
-.header .light{
+/*
+.light{
   background-color: oklch(0.94 0.01 0);
-  color: red;
 }
 
-.header .dark{
-  background-color: black;
-  color: red;
+.dark{
+  background-color: oklch(0.94 0.01 0);
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.8);
+  color: black;
 }
+*/
 
 
 .themeButton {
