@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./ContactForm.module.css";
 import Modal from "../UI/Modal";
 import Button from '../UI/Button'
+import Button2 from '../UI/Button2'
 const ContactForm = () => {
   const [showModal, setShowModal] = useState(false);
 
@@ -55,7 +56,6 @@ const ContactForm = () => {
 
   return (
     <>
-      {/* Render the form regardless of modal state */}
       <form className={styles["contact-form"]} onSubmit={handleSubmit}>
         <input
           className={styles.input}
@@ -83,9 +83,7 @@ const ContactForm = () => {
           spellCheck="false"
           required
         />
-        <Button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "Sending..." : "Send"}
-        </Button>
+        <Button2 className='active-neon' text={isSubmitting ? "Sending..." : "Send"} type="submit" disabled={isSubmitting} />
 
       </form>
 

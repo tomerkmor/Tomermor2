@@ -7,11 +7,10 @@ import Social from "../RightSide/Social";
 
 export default function MainHeader({ scrollIntoSection }) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState(0); // Track active section
-  const [selectedSection, setSelectedSection] = useState("home"); // Track the selected link
+  const [activeSection, setActiveSection] = useState(0);
+  const [selectedSection, setSelectedSection] = useState("home");
 
-  const [message, setMessage] = useState(null); // Store one message, can be null initially
-
+  const [message, setMessage] = useState(null);
   const handleImageClick = () => {
     setMessage("🎉 Hey! You've clicked on my image! 😜");
   };
@@ -81,66 +80,56 @@ export default function MainHeader({ scrollIntoSection }) {
   return (
     <>
       <header className={classes.header}>
-        <HeaderBackground />
-        <div className={classes.logo}>
-          <Image
-            src={logoImg}
-            alt="A plate with food on it"
-            onClick={handleImageClick}
-            priority
-          />
-          <div className={classes["img-text-container"]}>
-            TOMER MOR
-            <Social />
-          </div>
-        </div>
+        <div className={classes.contentContainer}>
+          <div className={classes.logo}>TOMER MOR</div>
 
-        <nav
-          ref={navRef}
-          className={`${classes.nav} ${menuOpen ? classes.active : ""}`}
-        >
-          <a
-            className={`${classes.item} ${
-              selectedSection === "home" ? classes.selected : ""
-            }`}
-            onClick={() => handleScroll(0, "home")}
+          <nav
+            ref={navRef}
+            className={`${classes.nav} ${menuOpen ? classes.active : ""}`}
           >
-            Home
-          </a>
-          <a
-            className={`${classes.item} ${
-              selectedSection === "about" ? classes.selected : ""
-            }`}
-            onClick={() => handleScroll(1, "about")}
-          >
-            About
-          </a>
-          <a
-            className={`${classes.item} ${
-              selectedSection === "projects" ? classes.selected : ""
-            }`}
-            onClick={() => handleScroll(2, "projects")}
-          >
-            Projects
-          </a>
-          <a
-            className={`${classes.item} ${
-              selectedSection === "contact" ? classes.selected : ""
-            }`}
-            onClick={() => handleScroll(3, "contact")}
-          >
-            Contact
-          </a>
-
-          {menuOpen && (
-            <button
-              className={`${classes.mobileMenuToggle} ${classes["nav-close-btn"]}`}
-              onClick={toggleMenuHandler}
+            <a
+              className={`${classes.item} ${
+                selectedSection === "home" ? classes.selected : ""
+              }`}
+              onClick={() => handleScroll(0, "home")}
             >
-              X
-            </button>
-          )}
-        </nav>
+              Home
+            </a>
+            <a
+              className={`${classes.item} ${
+                selectedSection === "about" ? classes.selected : ""
+              }`}
+              onClick={() => handleScroll(1, "about")}
+            >
+              About
+            </a>
+            <a
+              className={`${classes.item} ${
+                selectedSection === "projects" ? classes.selected : ""
+              }`}
+              onClick={() => handleScroll(2, "projects")}
+            >
+              Projects
+            </a>
+            <a
+              className={`${classes.item} ${
+                selectedSection === "contact" ? classes.selected : ""
+              }`}
+              onClick={() => handleScroll(3, "contact")}
+            >
+              Contact
+            </a>
+
+            {menuOpen && (
+              <button
+                className={`${classes.mobileMenuToggle} ${classes["nav-close-btn"]}`}
+                onClick={toggleMenuHandler}
+              >
+                X
+              </button>
+            )}
+          </nav>
+        </div>
 
         {!menuOpen && (
           <button

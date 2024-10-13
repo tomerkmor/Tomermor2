@@ -6,19 +6,17 @@ import styles from './Modal.module.css'
 const Modal = ({ isOpen, children, className = "", onClose }) => {
   const dialogRef = useRef(null);
 
-
-  // Open/close the dialog when `isOpen` changes
   useEffect(() => {
     const dialog = dialogRef.current;
 
     if (dialog) {
       if (isOpen) {
-        dialog.showModal(); // Open the dialog
+        dialog.showModal(); 
       } else {
-        dialog.close(); // Close the dialog
+        dialog.close(); 
       }
     }
-  }, [isOpen]); // Only runs when isOpen or isClient changes
+  }, [isOpen]);
 
 
   return createPortal(

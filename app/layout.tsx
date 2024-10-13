@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import MainHeader from "./components/MainHeader/main-header";
+import AlignmentContainer from './components/UI/AlignmentContainer'
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,7 +28,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
+        <AlignmentContainer>
+          {children}
+        </AlignmentContainer>
         <div id="modal"></div>
       </body>
     </html>

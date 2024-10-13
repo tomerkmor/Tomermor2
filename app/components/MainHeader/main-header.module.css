@@ -6,7 +6,6 @@
   padding: 0;
   display: flex;
   gap: 1.5rem;
-  margin-right: 4rem;
 }
 
 .navItem {
@@ -37,7 +36,6 @@
 }
 
 .logo {
-  margin-left: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,8 +45,11 @@
   font-family: "Montserrat", sans-serif;
   letter-spacing: 0.15rem;
   text-transform: uppercase;
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #fff;
+  left: 0;
+  position: relative;
+  margin-left: 1rem;
 }
 
 .logo img {
@@ -73,12 +74,11 @@
   cursor: pointer;
   font-size: 2rem;
   color: #fff;
-  margin-right: 3.5rem;
 }
 
 .nav {
   display: flex;
-  margin-right: 3.5rem;
+  margin-right: 1rem;
 }
 
 .nav ul {
@@ -144,7 +144,7 @@
 
 */
 .selected {
-  background: linear-gradient(90deg, #ff8a05, #f9b331);
+  background: linear-gradient(135deg, #6e07f3, #9b5cf5, #d47bff);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -155,7 +155,7 @@
 .selected:hover,
 .selected:active {
   cursor: pointer;
-  background: linear-gradient(90deg, #ff8a05, #f9b331);
+  background: linear-gradient(135deg, #6e07f3, #9b5cf5, #d47bff);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -164,27 +164,42 @@
 
 .header {
   position: fixed;
+  padding: 2rem 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #272935;
+  border-bottom: 2px solid white;
+  left: 0;
+  display: flex;
+  align-items: center;
+}
+
+.contentContainer {
+  max-width: 1350px;
+  width: 100%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 0;
-  width: 100%;
-  z-index: 1000; /* Ensure the header stays on top */
 }
 
-nav .item {
-  margin-right: 3rem;
+.nav {
+  gap: 1rem;
+}
+
+.nav .item {
   text-decoration: none;
 }
 
 .nav .item:hover,
 .nav .item:active {
   cursor: pointer;
-  background: linear-gradient(90deg, #ff8a05, #f9b331);
+  background: linear-gradient(135deg, #6e07f3, #9b5cf5, #d47bff);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 18px rgba(248, 190, 42, 0.8);
+  text-shadow: 2px 2px 5px rgba(110, 7, 243, 0.7),
+    4px 4px 10px rgba(155, 92, 245, 0.5);
 }
 
 .header .mobileMenuToggle {
@@ -209,9 +224,12 @@ nav .item {
   font-size: 1.5rem;
 }
 
-@media only screen and (max-width: 835px) {
+
+@media only screen and (max-width: 650px) {
+
   .mobileMenuToggle {
     display: block;
+    margin-right: 1rem;
   }
   .nav a {
     display: none; /* Show links normally */
@@ -304,11 +322,6 @@ nav .item {
   }
 }
 
-@media only screen and (max-width: 500px) {
-  .mobileMenuToggle {
-    margin-right: 1rem;
-  }
-}
 
 .pop-up-message {
   color: #ff9b05;
@@ -320,7 +333,7 @@ nav .item {
   padding: 3rem;
   border-radius: 10px;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
-  z-index: 100000; /* Ensure it appears above other elements */
+  z-index: 100000; /* Ensure it appears  above other elements */
   max-width: 80%;
   text-align: center;
   opacity: 1;
@@ -354,5 +367,3 @@ nav .item {
 /*
 linear-gradient(90deg, #f9572a, #ff9b05)
 */
-
-

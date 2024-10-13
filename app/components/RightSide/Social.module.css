@@ -1,12 +1,10 @@
 .socialIcons {
-  margin-top: 1rem;
-  margin-left: 1rem;
+  margin: 2rem auto 0 auto;
   display: flex; /* Align items in a row */
   gap: 15px; /* Adjust space between icons */
 }
 
 .socialIcon {
-  
   fill: currentColor; /* This allows the icon color to inherit the text color */
   transition: transform 0.3s; /* Add transition for hover effects */
   color: white; /* Set the default color of the icon to white */

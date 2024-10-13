@@ -1,9 +1,9 @@
 import { forwardRef, useImperativeHandle, useRef } from "react";
 import styles from "./LeftSide.module.css"; // Assuming you're using CSS modules
 import Welcome from "./Welcome.jsx";
-import AboutMe from "./AboutMe";
+import AboutMe from "./AboutMe.jsx";
 import Projects from "./ProjectsSlider";
-import Contact from "./Contact";
+import Contact from "./Contact.jsx";
 
 const LeftSide = forwardRef((props, ref) => {
   const welcomeRef = useRef(null);

@@ -1,0 +1,10 @@
+
+.container{
+    position: relative;
+    background-color: #141c3a;
+    width: 75%;
+    margin: 0 auto;
+    padding: 4rem;
+    z-index: 100;
+    border-radius: 16px;
+}

@@ -1,6 +1,5 @@
 html {
-  font-family: 'Quicksand', sans-serif;
-  background: radial-gradient(#282c34, #282c34);
+  
 }
 
 body {
@@ -9,10 +8,11 @@ body {
   cursor: url('/path/to/your/cursor.cur'), auto; /* Custom cursor */
   padding: 0;
   margin: 0;
-  font-family: 'Playfair Display', serif;
+  font-family: "europa", sans-serif;
   margin: 0;
-  background: radial-gradient(#282c34, #282c34);
+  background: #272935;
   color: #fff;
+  text-align: center;
 }
 
 /*
@@ -44,20 +44,10 @@ body {
   flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
 }
 
-h1 {
-  font-size: 6rem;
-  padding-top: 4rem;
-}
 
-h2{
-  font-size: 4rem;
-  margin-bottom: 0.5rem;
-  padding-top: 4rem;
-}
-
-h4{
-  margin: 1rem 0 0.15rem 0;
-  
+li,p{
+  margin-top: 0.5rem;
+  line-height: 1.4;
 }
 
 ul, ol {
@@ -70,7 +60,16 @@ a{
   text-decoration: none;
 }
 
+em{
+  color: #00AFFF;
+  font-weight: 800;
 
+}
+
+.mainTitle{
+    font-weight: 800;
+    font-size: 2rem;
+}
 
 @media only screen and (max-width: 550px) {
   body{

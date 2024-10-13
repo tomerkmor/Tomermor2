@@ -1,0 +1,43 @@
+.container {
+  width: 100%;
+  margin: 10rem 0 10rem 0;
+}
+
+.projects {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap onto new lines */
+  gap: 40px; /* Space between items */
+  margin: 0 0 4rem 0;
+  justify-content: center;
+}
+
+.itemList {
+  flex: 1 1 30%; /* Each item takes 30% of the width */
+  max-width: 30%; /* Ensures all items are of equal size */
+  box-sizing: border-box; /* Includes padding/borders in width calculation */
+  
+}
+
+.itemList img {
+  width: 100%; /* Image takes full width */
+  height: auto;
+  object-fit: cover; /* Image stays in aspect ratio */
+  aspect-ratio: 1 / 1; /* Square aspect ratio */
+  border-radius: 10px;
+}
+
+/* Media query for 2 items per row on medium screens */
+@media (max-width: 1024px) {
+  .itemList {
+    flex: 1 1 45%; /* Each item takes 45% of the width */
+    max-width: 45%; /* Ensures equal size */
+  }
+}
+
+/* Media query for 1 item per row on small screens */
+@media (max-width: 768px) {
+  .itemList {
+    flex: 1 1 100%; /* Each item takes 100% of the width */
+    max-width: 100%;
+  }
+}
