@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import HeaderBackground from "./HeaderBackground";
@@ -10,25 +11,10 @@ export default function MainHeader({ scrollIntoSection }) {
   const [activeSection, setActiveSection] = useState(0);
   const [selectedSection, setSelectedSection] = useState("home");
 
-  const [message, setMessage] = useState(null);
-  const handleImageClick = () => {
-    setMessage("🎉 Hey! You've clicked on my image! 😜");
-  };
-
-  useEffect(() => {
-    if (message) {
-      const timer = setTimeout(() => {
-        setMessage(null);
-      }, 3000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [message]);
-
-  const navRef = useRef("");
+  const navRef = useRef(null);
 
   const toggleMenuHandler = () => {
-    setMenuOpen((prevState) => !prevState); // Toggle menu state
+    setMenuOpen((prevState) => !prevState);
   };
 
   const handleScroll = (sectionIndex, sectionName) => {
@@ -42,7 +28,7 @@ export default function MainHeader({ scrollIntoSection }) {
     const sections = document.querySelectorAll("section");
     const options = {
       root: null,
-      threshold: 0.5, // Trigger when 50% of the section is visible
+      threshold: 0.5,
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -60,6 +46,7 @@ export default function MainHeader({ scrollIntoSection }) {
     });
 
     // Handle the case when the user is near the top (within 50px)
+    // PROBABLY USELESS CODE - REDUNTANT
     const handleScrollToTop = () => {
       if (window.scrollY < 50) {
         setActiveSection("home");
@@ -73,84 +60,104 @@ export default function MainHeader({ scrollIntoSection }) {
       sections.forEach((section) => {
         observer.unobserve(section); // Clean up observers on component unmount
       });
-      window.removeEventListener("scroll", handleScrollToTop); // Clean up scroll event listener
+      window.removeEventListener("scroll", handleScrollToTop);
     };
   }, []);
 
   return (
     <>
-      <header className={classes.header}>
+      <div className={classes.header}>
         <div className={classes.contentContainer}>
           <div className={classes.logo}>TOMER MOR</div>
 
-          <nav
-            ref={navRef}
-            className={`${classes.nav} ${menuOpen ? classes.active : ""}`}
-          >
-            <a
-              className={`${classes.item} ${
-                selectedSection === "home" ? classes.selected : ""
-              }`}
-              onClick={() => handleScroll(0, "home")}
-            >
-              Home
-            </a>
-            <a
-              className={`${classes.item} ${
-                selectedSection === "about" ? classes.selected : ""
-              }`}
-              onClick={() => handleScroll(1, "about")}
-            >
-              About
-            </a>
-            <a
-              className={`${classes.item} ${
-                selectedSection === "projects" ? classes.selected : ""
-              }`}
-              onClick={() => handleScroll(2, "projects")}
-            >
-              Projects
-            </a>
-            <a
-              className={`${classes.item} ${
-                selectedSection === "contact" ? classes.selected : ""
-              }`}
-              onClick={() => handleScroll(3, "contact")}
-            >
-              Contact
-            </a>
-
-            {menuOpen && (
-              <button
-                className={`${classes.mobileMenuToggle} ${classes["nav-close-btn"]}`}
-                onClick={toggleMenuHandler}
+          {!menuOpen && (
+            <nav ref={navRef} className={`${classes.nav}`}>
+              <a
+                className={`${classes.item} ${
+                  selectedSection === "home" ? classes.selected : ""
+                }`}
+                onClick={() => handleScroll(0, "home")}
               >
-                X
-              </button>
-            )}
-          </nav>
-        </div>
+                Home
+              </a>
+              <a
+                className={`${classes.item} ${
+                  selectedSection === "about" ? classes.selected : ""
+                }`}
+                onClick={() => handleScroll(1, "about")}
+              >
+                About
+              </a>
+              <a
+                className={`${classes.item} ${
+                  selectedSection === "projects" ? classes.selected : ""
+                }`}
+                onClick={() => handleScroll(2, "projects")}
+              >
+                Projects
+              </a>
+              <a
+                className={`${classes.item} ${
+                  selectedSection === "contact" ? classes.selected : ""
+                }`}
+                onClick={() => handleScroll(3, "contact")}
+              >
+                Contact
+              </a>
+            </nav>
+          )}
 
-        {!menuOpen && (
           <button
-            className={
-              menuOpen
-                ? `${classes.mobileMenuToggle} ${classes["nav-close-btn"]}`
-                : classes.mobileMenuToggle
-            }
+            className={classes.mobileMenuToggle}
+            style={{ transform: menuOpen ? "rotate(90deg)" : "none" }}
             onClick={toggleMenuHandler}
           >
             &#9776;
           </button>
-        )}
-      </header>
-
-      {/* Display message if it's set */}
-      {message && (
-        <div className={classes["pop-up-message"]} style={{ top: "80px" }}>
-          <p>{message}</p>
         </div>
-      )}
+        {/* Dropdown Menu */}
+        {menuOpen && (
+          <section id='projects'
+            className={`${menuOpen ? classes.active : ""} ${classes.showMenu}`}
+          >
+            <nav>
+              <a
+                className={`${classes.item} ${
+                  selectedSection === "home" ? classes.selected : ""
+                }`}
+                onClick={() => handleScroll(0, "home")}
+              >
+                Home
+              </a>
+              <a
+                className={`${classes.item} ${
+                  selectedSection === "about" ? classes.selected : ""
+                }`}
+                onClick={() => handleScroll(1, "about")}
+              >
+                About
+              </a>
+              <a
+                className={`${classes.item} ${
+                  selectedSection === "projects" ? classes.selected : ""
+                }`}
+                onClick={() => handleScroll(2, "projects")}
+              >
+                Projects
+              </a>
+              <a
+                className={`${classes.item} ${
+                  selectedSection === "contact" ? classes.selected : ""
+                }`}
+                onClick={() => handleScroll(3, "contact")}
+              >
+                Contact
+              </a>
+            </nav>
+          </section>
+        )}
+      </div>
+
     </>
   );
 }

@@ -46,10 +46,8 @@
   letter-spacing: 0.15rem;
   text-transform: uppercase;
   font-size: 1.5rem;
-  color: #fff;
   left: 0;
   position: relative;
-  margin-left: 1rem;
 }
 
 .logo img {
@@ -85,64 +83,6 @@
   display: flex;
 }
 
-/*
-@media (max-width: 800px) {
-  .nav ul {
-    display: none;
-
-  .navText {
-    display: none; 
-  }
-
-  .enable{
-    display: flex;
-  }
-
-  .navIcon {
-    display: inline-block; 
-  }
-
-
-  .mobileMenuToggle {
-    display: block;
-  }
-
-  .nav.active ul {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    top: 0; 
-    left: 0; 
-    width: 50%;
-    background-color: #333;
-    gap: 0.5rem;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    z-index: 999; 
-    padding-top: 4rem; 
-  }
-  
-
-  .navItem {
-    justify-content: center; 
-    padding: 1rem;
-    text-align: center;
-    border-top: 1px solid #444; 
-    color: red;
-  }
-  
-  .navItem:first-child {
-    border-top: none;
-  }
-  
-  .navItem {
-    width: 100%; 
-    justify-content: center;
-  }
-}
-
-
-
-*/
 .selected {
   background: linear-gradient(135deg, #6e07f3, #9b5cf5, #d47bff);
   background-clip: text;
@@ -163,21 +103,26 @@
 }
 
 .header {
-  position: fixed;
-  padding: 2rem 0;
-  width: 100%;
   z-index: 1000;
-  background-color: #272935;
-  border-bottom: 2px solid white;
+  position: fixed;
+  padding: 1rem 0;
+  top: 0;
   left: 0;
+  width: 100vh;
+  width: 100%;
+  background-color: var(--background-color);
+  border-bottom: 3px solid var(--border-color);
+  z-index: 1000;
+
   display: flex;
-  align-items: center;
+  justify-content: center;
+
 }
 
 .contentContainer {
   max-width: 1350px;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -191,8 +136,8 @@
   text-decoration: none;
 }
 
-.nav .item:hover,
-.nav .item:active {
+.item:hover,
+.item:active {
   cursor: pointer;
   background: linear-gradient(135deg, #6e07f3, #9b5cf5, #d47bff);
   background-clip: text;
@@ -203,15 +148,15 @@
 }
 
 .header .mobileMenuToggle {
-  padding: 5px;
   cursor: pointer;
   background: transparent;
   border: none;
   outline: none;
-  color: var(--textColor);
+  color: var(--color);
   visibility: hidden;
   opacity: 0;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
+  height: 100%;
 }
 
 .header,
@@ -224,104 +169,13 @@
   font-size: 1.5rem;
 }
 
-
-@media only screen and (max-width: 650px) {
-
-  .mobileMenuToggle {
-    display: block;
-    margin-right: 1rem;
-  }
-  .nav a {
-    display: none; /* Show links normally */
-  }
-
-  .header .mobileMenuToggle {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  .header .mobileMenuToggle {
-    visibility: visible;
-    opacity: 1;
-    font-size: 2rem;
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    color: #fff;
-    position: relative;
-    z-index: 10;
-  }
-
-  header .responsive_nav {
-    transform: 100vh;
-  }
-
-  .header nav {
-    background: linear-gradient(to top, #59453c, #8f3a09);
-    position: fixed;
-    top: -100vh;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    transition: 0.7s;
-  }
-
-  /* Close button styles */
-  .nav .nav-close-btn {
-    display: block;
-    position: absolute;
-    top: 3rem;
-    right: 0.5rem;
-    color: #fff;
-    font-size: 2rem;
-    cursor: pointer;
-  }
-
-  /* When menu is active, change the menu style */
-  .nav.active {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 999;
-    gap: 2rem;
-  }
-
-  .nav.active a {
-    display: block; /* Show links when menu is active */
-    padding: 1rem;
-    text-align: center;
-    width: 100%;
-    font-size: xx-large;
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav.active.selected {
-  }
+.nav {
+  margin-right: 2rem;
 }
 
-@media only screen and (min-width: 1025px) {
-  .nav a {
-    display: inline-block; /* Show links normally */
-  }
-
-  .header .mobileMenuToggle {
-    display: none; /* Hide mobile menu button */
-  }
+.logo {
+  margin-left: 2rem;
 }
-
 
 .pop-up-message {
   color: #ff9b05;
@@ -364,6 +218,74 @@
   }
 }
 
-/*
-linear-gradient(90deg, #f9572a, #ff9b05)
-*/
+/* small devices */
+@media only screen and (max-width: 684px) {
+  .nav {
+    display: none;
+  }
+  .header .mobileMenuToggle {
+    visibility: visible;
+    display: block;
+    opacity: 1;
+    height: 100%;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    position: relative;
+    z-index: 10;
+  }
+
+  .showMenu {
+    position: fixed;
+    top: 60px; /* Adjust this to the height of your header */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(
+      --background-color
+    ); /* Same as the header background or something different */
+    z-index: 999; /* Below the header's z-index but covering the rest of the content */
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Center the links horizontally */
+    gap: 1rem; /* Add some spacing between the links */
+  }
+
+  .showMenu a {
+    display: block;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  header .responsive_nav {
+    transform: 100vh;
+  }
+
+  /* When menu is active, change the menu style */
+  .nav.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    z-index: 999;
+    gap: 2rem;
+  }
+
+  .nav.active a {
+    display: block; /* Show links when menu is active */
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+    font-size: xx-large;
+    margin: 0;
+    padding: 0;
+  }
+}

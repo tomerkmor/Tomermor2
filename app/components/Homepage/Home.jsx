@@ -42,13 +42,16 @@ const Home = forwardRef((props, ref) => {
         />
       </div>
       <div className={classes.rightSide}>
+        
         <Image
           src={tomerImg}
           alt="Profile Image"
           className={classes.image}
           onClick={handleImageClick}
         />
+        
       </div>
+      
       {/* Display message if it's set */}
       {message && (
         <div className={classes.message} style={{ top: "80px" }}>

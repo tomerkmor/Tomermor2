@@ -11,6 +11,12 @@
   margin-left: 3rem;
 }
 
+/* that's my container */
+.rightSide {
+
+}
+
+
 .image {
   width: 20rem;
   height: 20rem;
@@ -18,9 +24,11 @@
   position: relative;
   margin-left: 10rem;
   margin-right: 3rem;
-  z-index: 1;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.5); /* initial shadow */
+  z-index: 1; /* Ensures image is above stripes */
+  box-shadow: 0 0px 180px rgba(110, 7, 243, 0.4); /* Existing shadow */
 }
+
+
 
 @media only screen and (max-width: 825px) {
   .container {
@@ -36,14 +44,11 @@
   }
 
   .image {
-    width: 20rem;
-    height: 20rem;
+    width: 15rem;
+    height: 15rem;
     border-radius: 50%;
     position: relative;
-    margin: 0 auto;
-    margin-bottom: 2rem;
-    z-index: 1;
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5); /* initial shadow */
+    margin: 2rem auto 2rem auto;
   }
 }
 
@@ -51,7 +56,7 @@
   position: fixed; /* Position relative to the viewport */
   left: 50%; /* Center horizontally */
   transform: translateX(-50%); /* Adjust for exact centering */
-  background-color: #272935;
+  background-color: var(--background-color);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
@@ -61,7 +66,7 @@
   opacity: 1;
   animation: slideIn 0.5s ease-out; /* Animation for showing the message */
   border: 3px solid #6e07f3;
-  margin-top: 10%;
+  margin-top: 3%;
 }
 
 /* Animation for message sliding in */

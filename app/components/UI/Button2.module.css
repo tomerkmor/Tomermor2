@@ -7,15 +7,14 @@
     display: flex;
     gap: 1rem;
     display: inline-block;
-    margin-top: 1rem;
+    margin-top: 2rem;
     padding: 1rem 1rem;
     color: #6e07f3;
     font-weight: bold;
     text-decoration: none;
     cursor: pointer;
     border-radius: 2rem;
-    background-color: #272935;
-    border: 2px solid #6e07f3;
+    border: 1px solid #6e07f3;
   }
   
   .button:hover {
@@ -44,7 +43,7 @@
     display: flex;
     gap: 1rem;
     display: inline-block;
-    margin-top: 1rem;
+    margin-top: 2rem;
     padding: 1rem 1rem;
     color: #fff;
     font-weight: bold;

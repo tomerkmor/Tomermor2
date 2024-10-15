@@ -1,10 +1,19 @@
 
 .container{
     position: relative;
-    background-color: #141c3a;
-    width: 75%;
+    background-color: var(--primary2-background-color);
+    color: var(--primary-color);
+    width: 80%;
     margin: 0 auto;
-    padding: 4rem;
+    padding: 0 0 2rem 0;
     z-index: 100;
     border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+@media only screen and (max-width: 767px){
+    .container{
+        width: 90%;
+        
+    } 
 }

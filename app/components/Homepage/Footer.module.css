@@ -1,7 +1,8 @@
 
 
 .primaryContainer {
-  background-color: #6e07f3; /* Background color for the primary container */
+  background-color: var(--primary-background-color); 
+  color: var(--primary-color);
   position: relative; /* Ensure positioning for child elements */
   width: 100vw; /* Full viewport width */
   left: 50%; /* Shift to center */
@@ -14,8 +15,8 @@
   width: 65%;
   display: flex;
   flex-direction: column;
-  margin: -14rem auto;
-  padding: 14rem 0 5rem 0;
+  margin: -10rem auto;
+  padding: 10rem 0 5rem 0;
 }
 
 .expandedContainer{
@@ -26,7 +27,12 @@
   padding: 41rem 0 5rem 0;
 }
 
-/*
-  margin: -10rem auto;
-  padding: 18rem 0 5rem 0;
-*/
+.primaryContainer p{
+  line-height: 0.25rem;
+  font-weight: 0;
+}
+
+.content{
+  margin-top: 4rem;
+  font-size: 1.25rem;
+}

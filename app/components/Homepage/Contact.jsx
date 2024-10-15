@@ -14,12 +14,12 @@ const Contact = forwardRef((props, ref) => {
     <section ref={ref} id="contact" className={classes.section}>
       <div className={classes.container}>
         <h2 className="mainTitle">Keep in touch.</h2>
-        <p>
+        <p style={{width: '80%', margin: '2rem auto 0 auto'}}>
           If you have any questions or just want to say hi, feel free to reach
           out to me.
         </p>
         <Button2 text="Reach Out" className="neon" onClick={toggleForm} />
-      {openForm && <ContactForm />}
+        {openForm && <ContactForm />}
       </div>
       <Footer openForm={openForm} />
     </section>

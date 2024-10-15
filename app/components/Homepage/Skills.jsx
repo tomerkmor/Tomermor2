@@ -21,7 +21,7 @@ const Skills = () => {
 
             <li>
               <p className={classes.subTitle}>
-                React, Redux, and Next.js Development Course
+                React, Redux, and Next.js Development
               </p>
               <p className={classes.subDescription}>Udemy</p>
             </li>
@@ -42,7 +42,7 @@ const Skills = () => {
         </div>
       </div>
 
-      <div className={classes.column}>
+      <div className={`${classes.column}  ${classes.center} `}>
         <div className={classes.inner}>
           <h2>ICON</h2>
           <h2>Skills</h2>

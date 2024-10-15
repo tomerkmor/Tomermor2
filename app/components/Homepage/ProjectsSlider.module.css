@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  margin: 10rem 0 10rem 0;
+
 }
 
 .projects {
@@ -24,6 +24,7 @@
   object-fit: cover; /* Image stays in aspect ratio */
   aspect-ratio: 1 / 1; /* Square aspect ratio */
   border-radius: 10px;
+  border: 4px solid var(--primary-background-color)
 }
 
 /* Media query for 2 items per row on medium screens */

@@ -1,18 +1,8 @@
 import { forwardRef } from "react";
 import classes from "./AboutMe.module.css";
-import Icons from "./Icons";
 import Skills from "./Skills";
-import Button from "../UI/Button";
 
 const AboutMe = forwardRef((props, ref) => {
-  const handleDownload = () => {
-    const cvUrl = "/Tomer Mor - CV.pdf";
-    const a = document.createElement("a");
-    a.href = cvUrl;
-    a.download = "TomerMorCV.pdf";
-    a.click();
-  };
-
   return (
     <>
       <div className={classes.primaryContainer}>

@@ -13,7 +13,8 @@ function MyApp() {
 
   const scrollToSection = (index) => {
     if (sectionsRef.current[index]) {
-      const yOffset = -95; // Adjust this value to match the height of your header or any margin
+      
+      const yOffset = -65; // Adjust this value to match the height of your header or any margin
       const y = sectionsRef.current[index].getBoundingClientRect().top + window.pageYOffset + yOffset;
   
       window.scrollTo({ top: y, behavior: "smooth" });
