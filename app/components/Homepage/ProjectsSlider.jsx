@@ -13,7 +13,7 @@ const ProjectsSlider = forwardRef((props, ref) => {
         <p>Here are a few of my projects I've worked on.</p>
 
         <ul className={classes.projects}>
-          {dummyData.map((project) => (
+        {dummyData.map((project) => (
             <li key={project} className={classes.itemList}>
               <a href={project.link}>
                 {
