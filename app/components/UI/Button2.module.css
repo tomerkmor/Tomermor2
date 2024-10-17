@@ -14,6 +14,7 @@
     cursor: pointer;
     border-radius: 2rem;
     border: 1px solid #6e07f3;
+    background-color: transparent;
   }
   
   .button:hover {

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styles from "./ContactForm.module.css";
 import Modal from "../UI/Modal";
-import Button from "../UI/Button";
 import Button2 from "../UI/Button2";
 const ContactForm = () => {
   const [showModal, setShowModal] = useState(false);
@@ -24,7 +23,8 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent page refresh
     setIsSubmitting(true);
-
+    setSuccessMessage(""); // Clear any previous messages
+    alert('trying to submit...')
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -34,18 +34,21 @@ const ContactForm = () => {
         body: JSON.stringify(formData),
       });
 
+      // Check if the response is okay and handle accordingly
       if (response.ok) {
         setSuccessMessage("Message sent successfully!");
         setFormData({ name: "", email: "", message: "" }); // Clear form
       } else {
-        setSuccessMessage("Failed to send message.");
+        const errorText = await response.text(); // Get the response text for error messages
+        console.error("Server error:", errorText);
+        setSuccessMessage("Failed to send message. " + errorText);
       }
     } catch (error) {
       console.error("Error sending message:", error);
       setSuccessMessage("An error occurred. Please try again.");
     } finally {
       setIsSubmitting(false);
-      setShowModal(true); // Show the modal on success
+      setShowModal(true); // Show the modal regardless of success/failure
     }
   };
 
@@ -91,24 +94,21 @@ const ContactForm = () => {
         />
       </form>
 
-      {successMessage && (
+      {showModal && (
         <Modal isOpen={showModal} onClose={handleClose}>
-          <p className={styles["error-message"]}>Something went wrong..</p>
-          <h2 className={styles["modal-error-message"]}>{successMessage}</h2>
-          <button
-            className={styles["modal-error-button"]}
-            onClick={handleClose}
-          >
-            Close
-          </button>
-        </Modal>
-      )}
-
-      {/* Only show the modal if showModal is true */}
-      {showModal && successMessage === "Message sent successfully!" && (
-        <Modal isOpen={showModal} onClose={handleClose}>
-          <p className={styles["thank-you-message"]}>Thank You.</p>
-          <h2 className={styles["modal-message"]}>{successMessage}</h2>
+          {successMessage === "Message sent successfully!" ? (
+            <>
+              <p className={styles["thank-you-message"]}>Thank You.</p>
+              <h2 className={styles["modal-message"]}>{successMessage}</h2>
+            </>
+          ) : (
+            <>
+              <p className={styles["error-message"]}>Something went wrong..</p>
+              <h2 className={styles["modal-error-message"]}>
+                {successMessage}
+              </h2>
+            </>
+          )}
           <button className={styles["modal-button"]} onClick={handleClose}>
             Close
           </button>

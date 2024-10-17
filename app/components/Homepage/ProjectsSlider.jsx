@@ -29,7 +29,7 @@ const ProjectsSlider = forwardRef((props, ref) => {
               </a>
 
               <div className={classes.projectContent}>
-                <h3>{project.title}</h3>
+                <h3 className={classes.title}>{project.title}</h3>
                 <p>{project.description}</p>
 
                 <div className={classes.techs}>
@@ -53,7 +53,7 @@ const ProjectsSlider = forwardRef((props, ref) => {
 
         <Button2
           text="Explore More"
-          className={"button"}
+          className="button"
           href="https://github.com/tomerkmor/React-Repo"
         />
       </section>

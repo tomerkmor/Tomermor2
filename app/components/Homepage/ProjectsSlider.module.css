@@ -23,8 +23,17 @@
   background-color: #f3f3f3;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
-  width: 80%;
-  margin: 2rem auto;
+}
+
+.title{
+  font-size: 1.5rem;
+}
+
+@media (max-width: 870px) {
+  .itemList{
+    width: 80%;
+    margin: 2rem auto;
+  }
 }
 
 .projectContent{
@@ -64,18 +73,11 @@
   margin-top: 1rem;
 }
 
-.links a{
+.links button{
   padding: 0.5rem;
   margin: 0.25rem;
-  margin-bottom: 1rem;
+  margin: 0 0.25rem 1rem 0.25rem;
   border-radius: 8px;
 }
 
 
-/* Media query for 1 item per row on small screens */
-@media (max-width: 768px) {
-  .itemList {
-    flex: 1 1 100%; /* Each item takes 100% of the width */
-    max-width: 100%;
-  }
-}

@@ -3,9 +3,9 @@ import classes from "./Button2.module.css";
 
 const Button = ({ children, className = '', text, onClick = () => {}, ...props }) => {
   return (
-    <a onClick={onClick} className={`${classes[className]}`} {...props}>
+    <button onClick={onClick} className={`${classes[className]}`} {...props}>
       {text || children}
-    </a>
+    </button>
   );
 };
 
