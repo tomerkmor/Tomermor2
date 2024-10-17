@@ -3,10 +3,12 @@ const dummyData = [
     img: "/projects/tictactoe.jpg",
     title: "Tic Tac Toe",
     description:
-      "The Classic game. \nBasic and a newbie friendly starting project.",
+      "The Classic game.",
     keyFeatures: ["Props drilling", "useState", "Practising logic and writing"],
     cons: ["Pretty basic and lacks of material"],
     link: "https://tic-tac-toe-tomermor.netlify.app/",
+    github: 'https://github.com/tomerkmor/React-Repo/tree/master/02%20-%20Tic%20Tac%20Toe',
+    techs: ['React', 'JavaScript', 'Vanilla CSS' ]
   },
   {
     img: "/projects/countdown.jpg",
@@ -15,22 +17,26 @@ const dummyData = [
     keyFeatures: ["Working with times", "Components sync practise", "useRef"],
     cons: ["Not a big project, lacks of state managements"],
     link: "https://reaction-game-tomermor.netlify.app/",
+    github: 'https://github.com/tomerkmor/React-Repo/tree/master/03%20-%20Reaction%20Game',
+    techs: ['React', 'JavaScript', 'Vanilla CSS' ]
   },
   {
     img: "/projects/project-management.jpg",
     title: "Projects Management",
-    description: "This is a description for project three.",
+    description: "Manage, organize and keep track of your tasks!",
     keyFeatures: ["Hooks practise", "usePortal", "TailWind"],
     cons: [
       "I used props drilling instead of Redux or useContext",
       "No backend/server",
     ],
     link: "https://project-management-tomermor.netlify.app/",
+    github: 'https://github.com/tomerkmor/React-Repo/tree/master/04%20-%20Project%20Management',
+    techs: ['React', 'JavaScript', 'Tailwind CSS' ]
   },
   {
     img: "/projects/place-picker.jpg",
     title: "Place Picker",
-    description: "Pick your dream vaction!(based on your current location)",
+    description: "Pick your dream vaction!",
     keyFeatures: [
       "Hooks practise",
       "Animations",
@@ -39,6 +45,8 @@ const dummyData = [
     ],
     cons: ["Requires Geolocation access"],
     link: "https://placeplanner.netlify.app/",
+    github: 'https://github.com/tomerkmor/React-Repo/tree/master/07%20-%20Place%20Planner%20-%20useEffect',
+    techs: ['React', 'useContext','JavaScript', 'Vanilla CSS']
   },
   {
     img: "/projects/react-game.jpg",
@@ -47,6 +55,8 @@ const dummyData = [
     keyFeatures: ["Working with heavy timers", "CSS", "Heavy logic"],
     cons: ["Redux not used"],
     link: "https://react-quiz-tomermor.netlify.app/",
+    github: 'https://github.com/tomerkmor/React-Repo/tree/master/08%20-%20React%20Quiz',
+    techs: ['React', 'useContext','JavaScript', 'Vanilla CSS']
   },
 ];
 

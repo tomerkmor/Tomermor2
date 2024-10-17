@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styles from "./ContactForm.module.css";
 import Modal from "../UI/Modal";
-import Button from '../UI/Button'
-import Button2 from '../UI/Button2'
+import Button from "../UI/Button";
+import Button2 from "../UI/Button2";
 const ContactForm = () => {
   const [showModal, setShowModal] = useState(false);
 
@@ -83,16 +83,22 @@ const ContactForm = () => {
           spellCheck="false"
           required
         />
-        <Button2 className='active-neon' text={isSubmitting ? "Sending..." : "Send"} type="submit" disabled={isSubmitting} />
-
+        <Button2
+          className="active-neon"
+          text={isSubmitting ? "Sending..." : "Send"}
+          type="submit"
+          disabled={isSubmitting}
+        />
       </form>
-
 
       {successMessage && (
         <Modal isOpen={showModal} onClose={handleClose}>
           <p className={styles["error-message"]}>Something went wrong..</p>
           <h2 className={styles["modal-error-message"]}>{successMessage}</h2>
-          <button className={styles["modal-error-button"]} onClick={handleClose}>
+          <button
+            className={styles["modal-error-button"]}
+            onClick={handleClose}
+          >
             Close
           </button>
         </Modal>

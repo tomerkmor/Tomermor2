@@ -1,19 +1,20 @@
 import React from "react";
 import classes from "./Skills.module.css";
-import Icons from "./Icons";
+import Icons from "../UI/Icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Skills = () => {
   return (
     <div className={classes.container}>
       <div className={classes.column}>
         <div className={classes.inner}>
-          <h2>ICON</h2>
+          <div className={classes.iconContainer}>
+            <FontAwesomeIcon icon="graduation-cap" className={classes.icon} />
+          </div>
           <h2>Education</h2>
           <ul>
             <li>
-              <p className={classes.subTitle}>
-                Bachelor’s Degree in C.S
-              </p>
+              <p className={classes.subTitle}>Bachelor’s Degree in C.S</p>
               <p className={classes.subDescription}>
                 Open University of Israel | Dean’s List
               </p>
@@ -29,14 +30,16 @@ const Skills = () => {
             <li>
               <p className={classes.subTitle}>FreeCodeCamp</p>
               <p className={classes.subDescription}>
-                HTML, CSS, JavaScript, and libraries: Bootstrap, jQuery,
-                SASS, React, Redux.
+                HTML, CSS, JavaScript, and libraries: Bootstrap, jQuery, SASS,
+                React, Redux.
               </p>
             </li>
 
             <li>
               <p className={classes.subTitle}>High School Diploma (Bagrut)</p>
-              <p className={classes.subDescription}>5 points in Math, English, Biology, and Chemistry</p>
+              <p className={classes.subDescription}>
+                5 points in Math, English, Biology, and Chemistry
+              </p>
             </li>
           </ul>
         </div>
@@ -44,7 +47,9 @@ const Skills = () => {
 
       <div className={`${classes.column}  ${classes.center} `}>
         <div className={classes.inner}>
-          <h2>ICON</h2>
+          <div className={classes.iconContainer}>
+            <FontAwesomeIcon icon="fa-terminal" className={classes.icon} />
+          </div>
           <h2>Skills</h2>
           <p>
             I like to code things from scratch, and enjoy bringing ideas to life
@@ -53,7 +58,9 @@ const Skills = () => {
           <p className={classes.subTitle}>Languages I speak</p>
           <p className={classes.subDescription}>HTML, CSS, JavaScript, SQL</p>
           <p className={classes.subTitle}>Web Development:</p>
-          <p className={classes.subDescription}>React, Redux, Next.js, Node.js, Express, MongoDB, REST API</p>
+          <p className={classes.subDescription}>
+            React, Redux, Next.js, Node.js, Express, MongoDB, REST API
+          </p>
           <p className={classes.subTitle}>Dev Tools:</p>
           <ul>
             <li>Github</li>
@@ -66,7 +73,10 @@ const Skills = () => {
 
       <div className={classes.column}>
         <div className={classes.inner}>
-          <h2>ICON</h2>
+          <div className={classes.iconContainer}>
+            <FontAwesomeIcon icon="fa-face-smile" className=
+            {classes.icon} />
+          </div>
           <h2>Hobbies</h2>
           <p>
             I enjoy <em>staying active</em> through gym workouts, spending

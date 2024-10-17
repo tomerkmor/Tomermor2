@@ -45,9 +45,30 @@
   margin-bottom: 0;
   color: red;
 }
+
+/* Skills.module.css */
+.iconContainer {
+  margin: 1rem 0;
+  display: inline-flex; /* Align icon and text */
+  justify-content: center; /* Center contents */
+  align-items: center; /* Center contents vertically */
+  background-color: #6E07F3; /* Set your desired background color */
+  border-radius: 50%; /* Makes the background circular */
+  width: 4rem; /* Set the width */
+  height: 4rem; /* Set the height */
+}
+
+.icon {
+  color: #ffffff; /* Change icon color to white */
+  font-size: 2rem; /* Set icon size to 2rem */
+}
+
+
 @media screen and (min-width: 1024px){
 
 }
+
+
 
 /* small tablets */
 @media screen and (max-width: 1024px){

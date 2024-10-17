@@ -116,7 +116,6 @@
 
   display: flex;
   justify-content: center;
-
 }
 
 .contentContainer {
@@ -220,9 +219,13 @@
 
 /* small devices */
 @media only screen and (max-width: 684px) {
+  .logo{
+    margin-left: 0;
+  }
   .nav {
     display: none;
   }
+
   .header .mobileMenuToggle {
     visibility: visible;
     display: block;
@@ -237,27 +240,24 @@
 
   .showMenu {
     position: fixed;
-    top: 60px; /* Adjust this to the height of your header */
+    top: 70px;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(
-      --background-color
-    ); /* Same as the header background or something different */
+    background-color: var(--background-color);
     z-index: 999; /* Below the header's z-index but covering the rest of the content */
-    padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; /* Center the links horizontally */
-    gap: 1rem; /* Add some spacing between the links */
+    align-items: center; 
+    gap: 1rem; 
+    
   }
 
   .showMenu a {
     display: block;
-    text-align: center;
-    font-size: 1.5rem;
-    padding: 1rem;
+    padding: 1rem 0;
+    font-size: 2.5rem;
     width: 100%;
   }
 

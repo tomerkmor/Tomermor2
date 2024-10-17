@@ -1,5 +1,4 @@
 .button {
-
     text-align: center;
     margin: 2rem auto;
     width: 10rem;
@@ -80,4 +79,28 @@
     transition: transform 0.3s ease; /* Transition property should be before the transform */
 }
 
+
+.link {
+  text-align: center;
+  margin: 2rem auto;
+  width: 10rem;
+  font-size: 1rem;
+  display: flex;
+  gap: 1rem;
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1rem 1rem;
+  color: #ffffff;
+  background-color: var(--color);
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 2rem;
+  border: 1px solid var(--color);
+}
+
+.link:hover{
+  background-color: #000000;
+
+}
   

@@ -32,8 +32,10 @@ const Home = forwardRef((props, ref) => {
     <section ref={ref} id="home" className={classes.container}>
       <div className={classes.leftSide}>
         <h1 className="mainTitle">Hi, I'm Tomer</h1>
-        <h3>Web Developer</h3>
-        <h3>C.S - Open University Graduate</h3>
+        <div className={classes.titles}>
+          <h3>Web Developer</h3>
+          <h3>C.S - Open University Graduate</h3>
+        </div>
         <p>I'm a quick learner, eager to learn, and passionate about coding!</p>
         <Button2
           text="Download CV"
@@ -42,16 +44,14 @@ const Home = forwardRef((props, ref) => {
         />
       </div>
       <div className={classes.rightSide}>
-        
         <Image
           src={tomerImg}
           alt="Profile Image"
           className={classes.image}
           onClick={handleImageClick}
         />
-        
       </div>
-      
+
       {/* Display message if it's set */}
       {message && (
         <div className={classes.message} style={{ top: "80px" }}>

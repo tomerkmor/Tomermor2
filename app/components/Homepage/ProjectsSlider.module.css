@@ -1,21 +1,35 @@
 .container {
-  width: 100%;
+  width: 90%;
+  margin: 2rem auto;
 
 }
 
 .projects {
-  display: flex;
-  flex-wrap: wrap; /* Allows items to wrap onto new lines */
-  gap: 40px; /* Space between items */
-  margin: 0 0 4rem 0;
-  justify-content: center;
+  width: 100%;
+  list-style: none;
+  margin: 2rem auto;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 2rem;
 }
 
+
 .itemList {
-  flex: 1 1 30%; /* Each item takes 30% of the width */
-  max-width: 30%; /* Ensures all items are of equal size */
-  box-sizing: border-box; /* Includes padding/borders in width calculation */
-  
+  box-sizing: border-box; 
+  text-align: center;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  background-color: #f3f3f3;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.projectContent{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 .itemList img {
@@ -23,17 +37,38 @@
   height: auto;
   object-fit: cover; /* Image stays in aspect ratio */
   aspect-ratio: 1 / 1; /* Square aspect ratio */
-  border-radius: 10px;
-  border: 4px solid var(--primary-background-color)
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
-/* Media query for 2 items per row on medium screens */
-@media (max-width: 1024px) {
-  .itemList {
-    flex: 1 1 45%; /* Each item takes 45% of the width */
-    max-width: 45%; /* Ensures equal size */
-  }
+.techs{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  width: 90%;
+  margin-top: 2rem;
 }
+
+.techs p{
+  padding: 0.5rem;
+  color: var(--primary-color);
+  background-color: var(--primary-background-color);
+  border-radius: 8px;
+  margin: 0;
+}
+
+.links{
+  margin-top: 1rem;
+}
+
+.links a{
+  padding: 0.5rem;
+  margin: 0.25rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
 
 /* Media query for 1 item per row on small screens */
 @media (max-width: 768px) {

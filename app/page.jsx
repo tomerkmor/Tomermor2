@@ -1,12 +1,13 @@
 "use client"; // Mark this file as a client component
 
+import { useRef } from "react";
 import { ThemeProvider } from "./context/ThemeContext";
 import MainHeader from "./components/MainHeader/main-header";
 import Home from "./components/Homepage/Home";
 import AboutMe from "./components/Homepage/AboutMe";
 import ProjectsSlider from "./components/Homepage/ProjectsSlider";
 import Contact from "./components/Homepage/Contact";
-import { useRef } from "react";
+import './components/UI/fontAwesome';
 
 function MyApp() {
   const sectionsRef = useRef([]);
@@ -14,7 +15,7 @@ function MyApp() {
   const scrollToSection = (index) => {
     if (sectionsRef.current[index]) {
       
-      const yOffset = -65; // Adjust this value to match the height of your header or any margin
+      const yOffset = 0; // Adjust this value to match the height of your header or any margin
       const y = sectionsRef.current[index].getBoundingClientRect().top + window.pageYOffset + yOffset;
   
       window.scrollTo({ top: y, behavior: "smooth" });
