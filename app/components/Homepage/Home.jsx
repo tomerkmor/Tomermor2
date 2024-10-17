@@ -22,6 +22,7 @@ const Home = forwardRef((props, ref) => {
   }, [message]);
 
   const handleDownload = () => {
+    console.log("trying to download...")
     const cvUrl = "/Tomer Mor - CV.pdf";
     const a = document.createElement("a");
     a.href = cvUrl;
@@ -40,7 +41,7 @@ const Home = forwardRef((props, ref) => {
         <Button2
           text="Download CV"
           onClick={handleDownload}
-          className={"button"}
+          className="button"
         />
       </div>
       <div className={classes.rightSide}>

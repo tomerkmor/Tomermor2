@@ -24,7 +24,7 @@ const ContactForm = () => {
     e.preventDefault(); // Prevent page refresh
     setIsSubmitting(true);
     setSuccessMessage(""); // Clear any previous messages
-    alert('trying to submit...')
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
