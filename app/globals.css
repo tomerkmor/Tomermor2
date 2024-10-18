@@ -1,18 +1,16 @@
-html {
-  overflow-x: hidden; /* Hide horizontal scrollbar */
-}
+
+
 
 :root {
   --background-color: #ffffff; 
   --color: #1b254c;
   --primary-background-color: #6E07F3;
-  --primary2-background-color: #141c3a;
+  --primary2-background-color: #242424;
   --primary-color: #ffffff;
   --border-color: #E6ECF8;
 
   --your-button-background: oklch(0.76 0.09 200.03); 
   --your-button-hover-background: #0056b3; 
-  
 }
 
 ::-webkit-scrollbar-thumb {
@@ -91,3 +89,5 @@ em{
     font-size: 3rem;
   }
 }
+
+

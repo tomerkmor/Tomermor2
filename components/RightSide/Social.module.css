@@ -1,0 +1,16 @@
+.socialIcons {
+  margin: 0 auto;
+}
+
+.socialIcon {
+  fill: currentColor; /* This allows the icon color to inherit the text color */
+  transition: transform 0.3s; /* Add transition for hover effects */
+  text-decoration: none; /* Remove underline from links */
+  margin:0 0.25rem;
+}
+
+.socialIcon:hover {
+  transform: scale(1.2); /* Scale the icon on hover */
+}
+
+

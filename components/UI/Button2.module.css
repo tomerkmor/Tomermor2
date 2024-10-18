@@ -1,0 +1,101 @@
+.resetButton {
+  all: unset; /* Resets all default styles */
+
+}
+
+.button {
+  text-align: center;
+  margin: 2rem auto 1rem auto;
+  width: 10rem;
+  font-size: 1rem;
+  display: flex;
+  gap: 1rem;
+  display: inline-block;
+  padding: 1rem 1rem;
+  color: #6e07f3;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 2rem;
+  border: 1px solid #6e07f3;
+  background-color: transparent;
+}
+
+.button:hover {
+  background: #6e07f3;
+  color: #fff;
+}
+
+.button:first-child {
+  background: transparent;
+  font-weight: normal;
+  color: #ff9b05;
+  padding-left: 0;
+}
+
+.button:first-child:hover,
+.button:first-child:active {
+  background: transparent;
+  color: #f9b241;
+}
+
+.neon {
+  text-align: center;
+  width: 10rem;
+  font-size: 1rem;
+  display: flex;
+  gap: 1rem;
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1rem 1rem;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 2rem;
+  background-color: var(--primary-background-color);
+}
+
+.neon:hover {
+  background: #5806c4;
+}
+
+.active-neon {
+  text-align: center;
+  width: 10rem;
+  font-size: 1rem;
+  display: inline-block; /* Choose flex or inline-block based on your layout needs */
+  margin-top: 1rem;
+  padding: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 2rem;
+  background: var(--primary-background-color);
+}
+
+.active-neon:hover {
+  background: #5806c4;
+}
+
+.link {
+  text-align: center;
+  margin: 2rem auto;
+  width: 10rem;
+  font-size: 1rem;
+  display: flex;
+  gap: 1rem;
+  display: inline-block;
+  padding: 1rem 1rem;
+  color: #ffffff;
+  background-color: var(--primary2-background-color);
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 2rem;
+}
+
+.link:hover {
+  opacity: 0.85;
+  color: #ffffff;
+}

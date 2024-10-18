@@ -1,0 +1,117 @@
+.container {
+  padding-top: 15rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.leftSide {
+  text-align: left;
+  margin-left: 3rem;
+}
+
+/* that's my container */
+.rightSide {
+
+}
+
+
+.image {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  position: relative;
+  margin-left: 10rem;
+  margin-right: 3rem;
+  z-index: 1; /* Ensures image is above stripes */
+  box-shadow: 0 0px 180px rgba(110, 7, 243, 0.4); /* Existing shadow */
+}
+
+.image:hover{
+  box-shadow: 0 0px 180px rgba(110, 7, 243, 0.8); /* Existing shadow */
+}
+
+
+
+@media only screen and (max-width: 825px) {
+  .container {
+    padding-top: 8rem;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .leftSide {
+    text-align: center;
+    margin: -2rem auto 0 auto;
+    justify-content: center;
+  }
+
+  .image {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    position: relative;
+    margin: 2rem auto 2rem auto;
+  }
+}
+
+.titles{
+  line-height: 0.5rem;
+}
+.message {
+  position: fixed; /* Position relative to the viewport */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for exact centering */
+  background-color: var(--background-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+  z-index: 1000; /* Ensure it appears above other elements */
+  max-width: 80%;
+  text-align: center;
+  opacity: 1;
+  animation: slideIn 0.5s ease-out; /* Animation for showing the message */
+  border: 3px solid #6e07f3;
+  margin-top: 3%;
+}
+
+/* Animation for message sliding in */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Fade-out animation for disappearing */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px); /* Slide upwards */
+  }
+}
+
+/* Responsive adjustments for smaller devices */
+@media (max-width: 1080px) {
+  .mainImg {
+    width: 270px;
+    height: 270px;
+  }
+}
+
+@media (max-width: 760px) {
+  .mainImg {
+    width: 200px;
+    height: 200px;
+  }
+}
