@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import classes from './ProgressBar.module.css'
 const ProgressBar = ({ timer }) => {
   const [remainingTime, setRemainingTime] = useState(timer);
 
@@ -14,7 +14,7 @@ const ProgressBar = ({ timer }) => {
     };
   }, []);
 
-  return <progress value={remainingTime} max={timer} style={{backgroundColor: 'red'}}/>;
+  return <progress value={remainingTime} max={timer} className={classes.progress}/>;
 };
 
 export default ProgressBar;

@@ -1,0 +1,19 @@
+/* ProgressBar.module.css */
+.progress {
+    background-color: #5d0909;
+    width: 100%;
+    height: 20px; /* Customize as needed */
+  }
+  
+  .progress::-webkit-progress-bar {
+    background-color: #5d0909;
+  }
+  
+  .progress::-webkit-progress-value {
+    background-color: #ff0000; /* Customize the fill color */
+  }
+  
+  .progress::-moz-progress-bar {
+    background-color: #ff0000; /* Customize the fill color */
+  }
+  
