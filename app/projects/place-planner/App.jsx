@@ -1,3 +1,4 @@
+"use client";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import Places from "./components/Places.jsx";
@@ -7,21 +8,23 @@ import Modal from "./components/Modal.jsx";
 import DeleteConfirmation from "./components/DeleteCofirmation.jsx";
 import logoImg from "@/public/projects/place-planner/logo.png";
 
-import classes from './page.module.css'
+import classes from "./page.module.css";
 import Image from "next/image.js";
-
-const storedIds = JSON.parse(localStorage.getItem("selectedPlaces")) || [];
-const storedPlaces = storedIds.map((id) =>
-  AVAILABLE_PLACES.find((place) => place.id === id)
-);
 
 function App() {
   const modal = useRef();
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
   const selectedPlace = useRef();
   const [availablePlaces, setAvailablePlaces] = useState([]);
-  const [pickedPlaces, setPickedPlaces] = useState(storedPlaces);
+  const [pickedPlaces, setPickedPlaces] = useState([]);
+
+  useEffect(() => {
+    const storedIds = JSON.parse(localStorage.getItem("selectedPlaces")) || [];
+    const storedPlaces = storedIds.map((id) =>
+      AVAILABLE_PLACES.find((place) => place.id === id)
+    );
+    setPickedPlaces(storedPlaces)
+  }, []);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -102,7 +105,7 @@ function App() {
           places={pickedPlaces}
           onSelectPlace={handleStartRemovePlace}
         />
-        
+
         <Places
           title="Available Places"
           places={availablePlaces}

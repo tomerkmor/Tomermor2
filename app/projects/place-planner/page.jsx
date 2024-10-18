@@ -5,7 +5,6 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 
-//import classes from "./page.module.css";
 import App from "./App";
 
 const PlacePlannerPage = () => {
