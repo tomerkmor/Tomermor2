@@ -44,7 +44,7 @@ const dummyData = [
       "Creation of Modals",
     ],
     cons: ["Requires Geolocation access"],
-    link: "https://placeplanner.netlify.app/",
+    link: "/projects/place-planner",
     github: 'https://github.com/tomerkmor/React-Repo/tree/master/07%20-%20Place%20Planner%20-%20useEffect',
     techs: ['React', 'useContext','JavaScript', 'Vanilla CSS']
   },

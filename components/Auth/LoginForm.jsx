@@ -58,7 +58,7 @@ const LoginForm = () => {
 
       // Redirect to the next page or reload
       //window.location.href = '/protected'; // Redirect to dashboard (or another page)
-      router.push('/protected')
+      router.push('/projects')
     } catch (error) {
       setError(error.message);
     }

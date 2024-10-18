@@ -14,6 +14,7 @@ const ProtectedPage = () => {
   const handleLogout = () => {
     logout();
   };
+  
   useEffect(() => {
     if (!token) {
       router.push("/auth/login");

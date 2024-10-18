@@ -1,16 +1,18 @@
 /* ProgressBar.module.css */
 .progress {
-    background-color: #5d0909;
-    width: 100%;
-    height: 20px; /* Customize as needed */
+    background-color: #a64a4a;
+    height: 10px; /* Customize as needed */
+    border-radius: 1rem;
   }
   
   .progress::-webkit-progress-bar {
-    background-color: #5d0909;
+    background-color: #a64a4a;
+    border-radius: 1rem;
   }
   
   .progress::-webkit-progress-value {
-    background-color: #ff0000; /* Customize the fill color */
+    background-color: #5d0909; /* Customize the fill color */
+    border-radius: 1rem;
   }
   
   .progress::-moz-progress-bar {

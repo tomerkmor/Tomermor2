@@ -5,6 +5,7 @@ import classes from './DeleteCofirmation.module.css'
 const TIMER = 5000;
 
 const DeleteConfirmation = ({ onConfirm, onCancel }) => {
+  /*
   useEffect(() => {
     const timer = setTimeout(() => {
       onConfirm();
@@ -14,6 +15,7 @@ const DeleteConfirmation = ({ onConfirm, onCancel }) => {
       clearTimeout(timer);
     };
   }, []);
+  */
   return (
     <div id={classes["delete-confirmation"]}>
       <h2>Are you sure?</h2>

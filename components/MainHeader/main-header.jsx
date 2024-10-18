@@ -1,10 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import HeaderBackground from "./HeaderBackground";
-import logoImg from "@/public/profileImg.jpeg";
 import classes from "./main-header.module.css";
-import Social from "../RightSide/Social";
 
 export default function MainHeader({ scrollIntoSection }) {
   const [menuOpen, setMenuOpen] = useState(false);

@@ -29,6 +29,7 @@ const ReactQuiz = () => {
 
   return (
     <div>
+      
         <h3 onClick={handleLogout}>Logout</h3>
       <h1>React Quiz</h1>
       {token ? <p>You are authenticated!</p> : <p>Redirecting to login...</p>}

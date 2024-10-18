@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { ThemeProvider } from "../context/ThemeContext";
-import {AuthProvider} from '../context/AuthContext'
+import { AuthProvider } from "../context/AuthContext";
 import MainHeader from "../components/MainHeader/main-header";
 import Home from "../components/Homepage/Home";
 import AboutMe from "../components/Homepage/AboutMe";
@@ -27,13 +27,11 @@ function MyApp() {
 
   return (
     <ThemeProvider>
-      
-        <MainHeader scrollIntoSection={scrollToSection} />
-        <Home ref={(el) => (sectionsRef.current[0] = el)} />
-        <AboutMe ref={(el) => (sectionsRef.current[1] = el)} />
-        <ProjectsSlider ref={(el) => (sectionsRef.current[2] = el)} />
-        <Contact ref={(el) => (sectionsRef.current[3] = el)} />
-      
+      <MainHeader scrollIntoSection={scrollToSection} />
+      <Home ref={(el) => (sectionsRef.current[0] = el)} />
+      <AboutMe ref={(el) => (sectionsRef.current[1] = el)} />
+      <ProjectsSlider ref={(el) => (sectionsRef.current[2] = el)} />
+      <Contact ref={(el) => (sectionsRef.current[3] = el)} />
     </ThemeProvider>
   );
 }
