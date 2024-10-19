@@ -4,6 +4,7 @@ import classes from "./ProjectsSlider.module.css";
 
 import Button2 from "../UI/Button2";
 import Image from "next/image";
+import Link from "next/link";
 
 const ProjectsSlider = forwardRef((props, ref) => {
   return (
@@ -13,7 +14,7 @@ const ProjectsSlider = forwardRef((props, ref) => {
         <p>Here are a few of my projects I've worked on.</p>
 
         <ul className={classes.projects}>
-        {dummyData.map((project) => (
+          {dummyData.map((project) => (
             <li key={project} className={classes.itemList}>
               <a href={project.link}>
                 {
@@ -51,11 +52,9 @@ const ProjectsSlider = forwardRef((props, ref) => {
           ))}
         </ul>
 
-        <Button2
-          text="Explore More"
-          className="button"
-          href="https://github.com/tomerkmor/React-Repo"
-        />
+       
+          <Button2 text="Explore More" className="button" href="/projects" type="link"/>
+        
       </section>
     </div>
   );

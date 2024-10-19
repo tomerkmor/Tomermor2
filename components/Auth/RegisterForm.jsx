@@ -6,13 +6,15 @@ import React, { useContext, useState } from "react";
 import classes from "./RegisterForm.module.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+
+import NewHeader from "../UI/NewHeader";
+
 const RegisterForm = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
-
 
   const router = useRouter();
 
@@ -66,53 +68,55 @@ const RegisterForm = () => {
       setMessage(successData.message);
       // let the user know that the request is being proccessing..
       setTimeout(() => {
-        router.push('login');
+        router.push("login");
       }, 2500);
     } catch (error) {
-
       setMessage(`${error}`);
     }
   };
 
   return (
-    <div className={classes.container}>
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>
-            Username:
-            <input
-              type="text"
-              value={username}
-              onChange={handleUsernameChange}
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Email:
-            <input type="email" value={email} onChange={handleEmailChange} />
-          </label>
-        </div>
-        <div>
-          <label>
-            Password:
-            <input
-              type="password"
-              value={password}
-              onChange={handlePasswordChange}
-            />
-          </label>
-        </div>
+    <>
+      <NewHeader />
+      <div className={classes.container}>
+        <h1>Register</h1>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>
+              Username:
+              <input
+                type="text"
+                value={username}
+                onChange={handleUsernameChange}
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Email:
+              <input type="email" value={email} onChange={handleEmailChange} />
+            </label>
+          </div>
+          <div>
+            <label>
+              Password:
+              <input
+                type="password"
+                value={password}
+                onChange={handlePasswordChange}
+              />
+            </label>
+          </div>
 
-        {error && <span style={{ color: "red" }}>{error}</span>}
-        <button type="submit">Register</button>
-        {message && <p>{message}</p>}
-      </form>
+          {error && <span style={{ color: "red" }}>{error}</span>}
+          <button type="submit">Register</button>
+          {message && <p>{message}</p>}
+        </form>
 
-      <p>Already a registered?</p>
-      <Link href="login">Login</Link>
-    </div>
+        <p>Already a registered?</p>
+        <Link href="login">Login</Link>
+      </div>
+    </>
   );
 };
 

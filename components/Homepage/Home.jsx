@@ -46,6 +46,7 @@ const Home = forwardRef((props, ref) => {
           text="Download CV"
           onClick={handleDownload}
           className="button"
+          type="fdsa"
         />
         <Social color='var(--primary-background-color)'/>
       </div>
