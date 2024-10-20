@@ -6,7 +6,7 @@ const dummyData = [
       "The Classic game.",
     keyFeatures: ["Props drilling", "useState", "Practising logic and writing"],
     cons: ["Pretty basic and lacks of material"],
-    link: "https://tic-tac-toe-tomermor.netlify.app/",
+    link: "/projects/tic-tac-toe",
     github: 'https://github.com/tomerkmor/React-Repo/tree/master/02%20-%20Tic%20Tac%20Toe',
     techs: ['React', 'JavaScript', 'Vanilla CSS' ]
   },

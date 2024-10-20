@@ -40,10 +40,10 @@ const ProjectsSlider = forwardRef((props, ref) => {
                 </div>
 
                 <div className={classes.links}>
-                  <Button2 className="link" href={project.link}>
+                  <Button2 className="link" type="link" href={project.link}>
                     Demo
                   </Button2>
-                  <Button2 className="link" href={project.github}>
+                  <Button2 className="link" type="link" href={project.github}>
                     Github
                   </Button2>
                 </div>
@@ -52,9 +52,12 @@ const ProjectsSlider = forwardRef((props, ref) => {
           ))}
         </ul>
 
-       
-          <Button2 text="Explore More" className="button" href="/projects" type="link"/>
-        
+        <Button2
+          text="Explore More"
+          className="button"
+          href="/projects"
+          type="link"
+        />
       </section>
     </div>
   );

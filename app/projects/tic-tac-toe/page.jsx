@@ -4,6 +4,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
+import App from './App'
 
 const TicTacToe = () => {
   const { token, logout } = useContext(AuthContext);
@@ -29,9 +30,7 @@ const TicTacToe = () => {
 
   return (
     <div>
-        <h3 onClick={handleLogout}>Logout</h3>
-      <h1>Tic Tac Toe</h1>
-      {token ? <p>You are authenticated!</p> : <p>Redirecting to login...</p>}
+      {token ? <App /> : <p>Redirecting to login...</p>}
     </div>
   );
 };

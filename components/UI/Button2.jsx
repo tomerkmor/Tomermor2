@@ -14,7 +14,7 @@ const Button = ({
   return (
     <>
       {type === "link" && (
-        <Link to href={href}
+        <Link href={href}
           onClick={onClick}
           className={`${classes[className]}`}
           {...props}
