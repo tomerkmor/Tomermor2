@@ -15,23 +15,12 @@ const ProtectedPage = () => {
     logout();
   };
   
-  useEffect(() => {
-    if (!token) {
-      router.push("/auth/login");
-    } else {
-      setisLoading(false);
-    }
-  }, [token, router]);
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
 
   return (
     <div>
       <h3 onClick={handleLogout}>Logout</h3>
-      <h1>Protected Page</h1>
-      {token ? <p>You are authenticated!</p> : <p>Redirecting to login...</p>}
+      <h1>Projects List</h1>
+
 
       <div style={{ display: "flex", flexDirection: "column"}}>
         <Link href="projects/tic-tac-toe">Tic Tac Toe</Link>
@@ -39,6 +28,7 @@ const ProtectedPage = () => {
         <Link href="projects/project-management">Project Management</Link>
         <Link href="projects/place-planner">Place Planner</Link>
         <Link href="projects/react-quiz">React Quiz</Link>
+        <Link href="projects/auth/login">Authentication</Link>
       </div>
     </div>
   );

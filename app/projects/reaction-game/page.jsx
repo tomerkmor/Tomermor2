@@ -15,6 +15,7 @@ const ReactionGame = () => {
     logout()
   }
   
+  /*
   useEffect(() => {
     if (!token) {
       router.push("/auth/login");
@@ -26,6 +27,7 @@ const ReactionGame = () => {
   if(isLoading){
     return <p>Loading...</p>
   }
+    */
 
   return (
     <div>

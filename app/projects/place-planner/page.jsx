@@ -13,6 +13,7 @@ const PlacePlannerPage = () => {
   const router = useRouter();
   const [isLoading, setisLoading] = useState(true);
 
+  /*
   useEffect(() => {
     if (!token) {
       router.push("/auth/login");
@@ -24,8 +25,8 @@ const PlacePlannerPage = () => {
   if (isLoading) {
     return <p>Loading...</p>;
   }
-
-  return <>{token ? <App /> : <p>Redirecting to login...</p>}</>;
+*/
+  return <App />;
 };
 
 export default PlacePlannerPage;

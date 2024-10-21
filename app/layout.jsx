@@ -34,8 +34,8 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <AuthProvider>
-          <AlignmentContainer>{children}</AlignmentContainer>
           <div id="modal"></div>
+          <AlignmentContainer>{children}</AlignmentContainer>
         </AuthProvider>
       </body>
     </html>

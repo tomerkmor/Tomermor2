@@ -16,6 +16,7 @@ const ProjectManagement = () => {
     logout();
   };
 
+  /*
   useEffect(() => {
     if (!token) {
       router.push("/auth/login");
@@ -28,6 +29,7 @@ const ProjectManagement = () => {
     return <p>Loading...</p>;
   }
 
+  */
   return (
     <div>
       <h1>Project Management</h1>

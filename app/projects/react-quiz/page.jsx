@@ -14,7 +14,7 @@ const ReactQuiz = () => {
   const handleLogout = () => {
     logout()
   }
-  
+  /*
   useEffect(() => {
     if (!token) {
       router.push("/auth/login");
@@ -26,7 +26,7 @@ const ReactQuiz = () => {
   if(isLoading){
     return <p>Loading...</p>
   }
-
+*/
   return (
     <div>
       

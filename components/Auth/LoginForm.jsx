@@ -14,7 +14,7 @@ const LoginForm = () => {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
 
-  const { login } = useContext(AuthContext);
+  const { token,login } = useContext(AuthContext);
   const router = useRouter();
 
   // Handle input changes
@@ -59,7 +59,7 @@ const LoginForm = () => {
 
       // Redirect to the next page or reload
       //window.location.href = '/protected'; // Redirect to dashboard (or another page)
-      router.push("/projects");
+      router.push("/projects/auth/login");
     } catch (error) {
       setError(error.message);
     }

@@ -1,5 +1,5 @@
 import React, { forwardRef, useState } from "react";
-import dummyData from "@/data/projectsImgs";
+import dummyData from "@/data/projectsData";
 import classes from "./ProjectsSlider.module.css";
 
 import Button2 from "../UI/Button2";

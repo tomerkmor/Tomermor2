@@ -1,8 +1,7 @@
 // app/register/page.js
-import LoginForm from "../../../components/Auth/LoginForm";
-
+import RegisterForm from "@/components/Auth/RegisterForm";
 const RegisterPage = () => {
-  return <LoginForm />;
+  return <RegisterForm />;
 };
 
 export default RegisterPage;

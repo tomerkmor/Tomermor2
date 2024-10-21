@@ -57,7 +57,16 @@ const dummyData = [
     link: "https://react-quiz-tomermor.netlify.app/",
     github: 'https://github.com/tomerkmor/React-Repo/tree/master/08%20-%20React%20Quiz',
     techs: ['React', 'useContext','JavaScript', 'Vanilla CSS']
-  },
+  },{
+    img: "/projects/authentication.jpg",
+    title: "Authentication Forms",
+    description: "Login and Register with bcyrpt.",
+    keyFeatures: ["Working with heavy timers", "CSS", "Heavy logic"],
+    cons: ["Redux not used"],
+    link: "/projects/auth/login",
+    github: 'https://github.com/tomerkmor/React-Repo/tree/master/08%20-%20React%20Quiz',
+    techs: ['React', 'useContext','JavaScript', 'Vanilla CSS']
+  }
 ];
 
 export default dummyData;
