@@ -1,0 +1,82 @@
+.container{
+    margin: 0;
+    font-family: 'Lato', serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+     /* color: #d9e2f1; */
+    width: 100vw;
+    
+  }
+
+  @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Lato:wght@400;700&display=swap");
+
+  .form {
+    background: linear-gradient(180deg, #253c3c, #1d4949);
+    width: 60%;
+    max-width: 30rem;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: left;
+    border-radius: 8px;
+    color: #f5f5f5;
+  }
+  
+  .control-row {
+    display: flex;
+    flex-wrap: wrap;
+    color: #708b8b;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    width: 100%;
+  }
+  
+  @media (max-width: 600px) {
+    .form {
+      text-align: center;
+      padding: 1rem; /* Reduce padding on small screens */
+    }
+  
+    .control-row {
+      display: block;
+    }
+  }
+  .form-actions {
+    margin-top: 2rem;
+    margin-bottom: 0;
+    display: flex;
+    gap: 1rem;
+    justify-content: end;
+  }
+  
+  .form-actions button {
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: #708b8b;
+    background: none;
+    background-color: transparent;
+    border: none;
+  }
+  
+  .form-actions button:hover {
+    color: #a2baba;
+  }
+  
+  .form-actions button.form-priamry-button {
+    background-color: #348181;
+    color: #f5f5f5;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+  }
+  
+  .form-actions button.form-priamry-button:hover {
+    background-color: #44a0a0;
+  }
+  
+  .sign-up {
+    color: #4cb8b8;
+  }
+  
+  .sign-up:hover{
+    color: #64d7d7;
+    font-weight: bold;
+  }

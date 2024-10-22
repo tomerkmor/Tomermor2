@@ -1,10 +1,8 @@
 'use client'
 import React, { createContext, useState, useEffect } from "react";
 
-// Create the context
 export const AuthContext = createContext();
 
-// AuthContext provider component
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(() => {
     // Initialize state with the token from localStorage

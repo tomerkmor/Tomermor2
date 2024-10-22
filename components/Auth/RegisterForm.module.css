@@ -1,3 +1,14 @@
 .container {
-    margin-top: 5rem;
+    
 }
+
+.form {
+    background: linear-gradient(180deg, #253c3c, #1d4949);
+    width: 60%;
+    max-width: 30rem;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: left;
+    border-radius: 8px;
+    color: #f5f5f5;
+  }

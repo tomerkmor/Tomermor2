@@ -1,0 +1,51 @@
+.control {
+  display: block;
+}
+
+.no-margin {
+  margin-right: 1rem;
+  margin-bottom: 0;
+}
+
+.control label {
+  display: block;
+}
+
+.control input {
+  background-color: #708b8b;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: none;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.control label {
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
+  color: #9bafaf;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.control-error {
+  font-size: 0.55rem;
+  color: rgb(248, 193, 26);
+  height: 2rem;
+}
+
+.control-error p {
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .control input {
+    margin: 0;
+  }
+
+  .control{
+    margin: 0;
+  }
+}

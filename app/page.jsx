@@ -1,7 +1,7 @@
 "use client"; // Mark this file as a client component
 
-import { useRef } from "react";
-import { ThemeProvider } from "../context/ThemeContext";
+import { useContext, useEffect, useRef } from "react";
+import { ThemeContext, ThemeProvider } from "../context/ThemeContext";
 import { AuthProvider } from "../context/AuthContext";
 import MainHeader from "../components/MainHeader/main-header";
 import Home from "../components/Homepage/Home";
@@ -11,6 +11,13 @@ import Contact from "../components/Homepage/Contact";
 import "../components/UI/fontAwesome";
 
 function MyApp() {
+
+  const { theme, setTheme, backgroundColors } = useContext(ThemeContext);
+
+  useEffect(() => {
+    setTheme("portfolio");
+  }, []);
+
   const sectionsRef = useRef([]);
 
   const scrollToSection = (index) => {
@@ -27,11 +34,13 @@ function MyApp() {
 
   return (
     <ThemeProvider>
-      <MainHeader scrollIntoSection={scrollToSection} />
-      <Home ref={(el) => (sectionsRef.current[0] = el)} />
-      <AboutMe ref={(el) => (sectionsRef.current[1] = el)} />
-      <ProjectsSlider ref={(el) => (sectionsRef.current[2] = el)} />
-      <Contact ref={(el) => (sectionsRef.current[3] = el)} />
+      <div className="main-container">
+        <MainHeader scrollIntoSection={scrollToSection} />
+        <Home ref={(el) => (sectionsRef.current[0] = el)} />
+        <AboutMe ref={(el) => (sectionsRef.current[1] = el)} />
+        <ProjectsSlider ref={(el) => (sectionsRef.current[2] = el)} />
+        <Contact ref={(el) => (sectionsRef.current[3] = el)} />
+      </div>
     </ThemeProvider>
   );
 }

@@ -1,5 +1,5 @@
 // app/components/RegisterForm.js
-"use client"; // Ensure this is a client component
+"use client"; 
 
 import React, { useContext, useState } from "react";
 
@@ -79,8 +79,8 @@ const RegisterForm = () => {
     <>
       <NewHeader />
       <div className={classes.container}>
-        <h1>Register</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={classes.form}>
+          <h2>Register</h2>
           <div>
             <label>
               Username:

@@ -3,21 +3,34 @@
 
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "@/context/AuthContext";
+import { ThemeContext } from "@/context/ThemeContext";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 const ProtectedPage = () => {
   const { token, logout } = useContext(AuthContext);
+  const { theme, setTheme } = useContext(ThemeContext);
   const router = useRouter();
-  const [isLoading, setisLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
+  // set the background design
+  useEffect(() => {
+    setTheme('projects');
+    setIsLoading(false)
+  }, [setTheme]);
+  
+  if(isLoading){
+    return <h1>The page is Loading...</h1>
+  }
+  
   const handleLogout = () => {
     logout();
   };
   
+  
 
   return (
-    <div>
+    <div style={{background: theme, minHeight: '100vh'}}>
       <h3 onClick={handleLogout}>Logout</h3>
       <h1>Projects List</h1>
 

@@ -4,9 +4,13 @@ import classes from "./NewHeader.module.css";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
+import { ThemeContext } from "@/context/ThemeContext";
+import { color } from "framer-motion";
 
 const NewHeader = ({}) => {
   const { token, logout } = useContext(AuthContext);
+  const { theme, setTheme, backgroundColors } = useContext(ThemeContext);
+
 
   const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
@@ -26,7 +30,7 @@ const NewHeader = ({}) => {
 
   return (
     <div>
-      <div className={classes.header}>
+      <div className={classes.header} style={{background: backgroundColors[theme]}}>
         <div className={classes.contentContainer}>
           <div onClick={handleHomePageClicked} className={classes.logo}>
             TOMER MOR

@@ -4,6 +4,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
+import { ThemeContext } from "@/context/ThemeContext";
 
 
 
@@ -11,6 +12,12 @@ const ProjectManagement = () => {
   const { token, logout } = useContext(AuthContext);
   const router = useRouter();
   const [isLoading, setisLoading] = useState(true);
+
+  const { theme, setTheme, backgroundColors } = useContext(ThemeContext);
+  //authentication
+  useEffect(() => {
+    setTheme('projectsManagement')
+  }, [])
 
   const handleLogout = () => {
     logout();

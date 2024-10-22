@@ -9,6 +9,7 @@ export async function POST(req) {
   try {
     const { username, password } = await req.json();
 
+    console.log(username, password)
     // Check if the user exists
     const user = await User.findOne({ username });
     if (!user) {

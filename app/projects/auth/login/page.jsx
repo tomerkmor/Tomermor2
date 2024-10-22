@@ -6,32 +6,21 @@ import { useRouter } from "next/navigation";
 
 import { useContext, useEffect, useState } from "react";
 
-const RegisterPage = () => {
+import Header from "../components/Header.jsx";
+import Login from "../components/Login.jsx";
+import Signup from "../components/SignUp.jsx";
+import StateLogin from "../components/StateLogin.jsx";
+
+const LoginPage = () => {
+  const [showLogin, setShowLogin] = useState(true);
+
   const { token, logout } = useContext(AuthContext);
   const router = useRouter();
-  //const [isLoading, setisLoading] = useState(true);
   const [isLoading, setisLoading] = useState(false);
-  /*
-  useEffect(() => {
-    if (!token) {
-      // if there is no key move to another page..
-      //router.push("/projects/auth/login");
-    } else {
-      setisLoading(false);
-    }
-  }, [token, router]);
-  
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-  */
 
   return (
-    <div>
-      {token ? <h1 style={{marginTop: '5rem'}}>You are successfully logged in!<br/>Feel free to logout from the navbar</h1>: <LoginForm />}
-    </div>
-  );
+      <StateLogin />
+  )
 };
 
-export default RegisterPage;
+export default LoginPage;

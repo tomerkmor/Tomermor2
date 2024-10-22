@@ -7,12 +7,18 @@ import { useRouter } from "next/navigation";
 
 import NewHeader from "@/components/UI/NewHeader";
 import App from "./App";
+import { ThemeContext } from "@/context/ThemeContext";
 
 const PlacePlannerPage = () => {
   const { token, logout } = useContext(AuthContext);
   const router = useRouter();
   const [isLoading, setisLoading] = useState(true);
 
+  const { theme, setTheme, backgroundColors } = useContext(ThemeContext);
+  //authentication
+  useEffect(() => {
+    setTheme('placePlanner')
+  }, [])
   /*
   useEffect(() => {
     if (!token) {

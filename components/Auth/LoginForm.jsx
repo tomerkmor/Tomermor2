@@ -35,6 +35,7 @@ const LoginForm = () => {
       return;
     }
 
+    console.log(username, password);
     try {
       const response = await fetch("/api/login", {
         method: "POST",
