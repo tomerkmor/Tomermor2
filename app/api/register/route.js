@@ -40,8 +40,9 @@ export async function POST(req, res) {
     const newUser = new User({ username, email, password: hashedPassword });
     await newUser.save(); // Save the user to the database
 
+    console.log('new account created!')
     return new Response(
-      JSON.stringify({ message: "User registered successfully!" }),
+      JSON.stringify({ message: "User registered successfully! redirrecting..." }),
       { status: 201 }
     );
   } catch (error) {

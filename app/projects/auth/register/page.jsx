@@ -122,16 +122,16 @@ const RegisterForm = () => {
               type="password"
               name="password"
               value={password}
-              onChange={handlePasswordChange}
+              onChange={handleConfirmPasswordChange}
             />
           </div>
-
+          
+          {message && <p>{message}</p>}
           {error && <span style={{ color: "red" }}>{error}</span>}
           <p className={classes["form-actions"]}>
             <button type="button">Reset</button>
             <button className={classes["form-priamry-button"]}>Register</button>
           </p>
-          {message && <p>{message}</p>}
         </form>
 
         <p>Already a registered?</p>
