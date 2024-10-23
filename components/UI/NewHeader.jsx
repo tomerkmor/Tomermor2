@@ -1,11 +1,12 @@
 "use client";
 import { useContext, useEffect, useState } from "react";
-import classes from "./NewHeader.module.css";
+import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
 import { ThemeContext } from "@/context/ThemeContext";
-import { color } from "framer-motion";
+import classes from "./NewHeader.module.css";
+
 
 const NewHeader = ({}) => {
   const { token, logout } = useContext(AuthContext);
@@ -25,6 +26,7 @@ const NewHeader = ({}) => {
 
   const signOutHandler = () => {
     toggleMenuHandler();
+    signOut();
     logout();
   };
 

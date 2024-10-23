@@ -1,24 +1,23 @@
 "use client"; // Mark this file as a client component
 
 import { useContext, useEffect, useRef } from "react";
-import { ThemeContext, ThemeProvider } from "../context/ThemeContext";
-import { AuthProvider } from "../context/AuthContext";
+import { ThemeContext } from "../context/ThemeContext";
+import RootLayout from "./layout"; // Adjust path if necessary
 import MainHeader from "../components/MainHeader/main-header";
 import Home from "../components/Homepage/Home";
 import AboutMe from "../components/Homepage/AboutMe";
 import ProjectsSlider from "../components/Homepage/ProjectsSlider";
 import Contact from "../components/Homepage/Contact";
 import "../components/UI/fontAwesome";
+import { useSession } from "next-auth/react"; // Use NextAuth's hook to get the session
 
 function MyApp() {
-
-  const { theme, setTheme, backgroundColors } = useContext(ThemeContext);
+  const { theme, setTheme } = useContext(ThemeContext);
+  const sectionsRef = useRef([]);
 
   useEffect(() => {
     setTheme("portfolio");
-  }, []);
-
-  const sectionsRef = useRef([]);
+  }, [setTheme]);
 
   const scrollToSection = (index) => {
     if (sectionsRef.current[index]) {
@@ -33,15 +32,13 @@ function MyApp() {
   };
 
   return (
-    <ThemeProvider>
-      <div className="main-container">
-        <MainHeader scrollIntoSection={scrollToSection} />
-        <Home ref={(el) => (sectionsRef.current[0] = el)} />
-        <AboutMe ref={(el) => (sectionsRef.current[1] = el)} />
-        <ProjectsSlider ref={(el) => (sectionsRef.current[2] = el)} />
-        <Contact ref={(el) => (sectionsRef.current[3] = el)} />
-      </div>
-    </ThemeProvider>
+    <div className="main-container">
+      <MainHeader scrollIntoSection={scrollToSection} />
+      <Home ref={(el) => (sectionsRef.current[0] = el)} />
+      <AboutMe ref={(el) => (sectionsRef.current[1] = el)} />
+      <ProjectsSlider ref={(el) => (sectionsRef.current[2] = el)} />
+      <Contact ref={(el) => (sectionsRef.current[3] = el)} />
+    </div>
   );
 }
 

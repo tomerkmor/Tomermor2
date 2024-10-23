@@ -1,14 +1,9 @@
 "use client";
 // app/register/page.js
-import LoginForm from "@/components/Auth/LoginForm";
+
 import { AuthContext } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
-
-import { useContext, useEffect, useState } from "react";
-
-import Header from "../components/Header.jsx";
-import Login from "../components/Login.jsx";
-import Signup from "../components/SignUp.jsx";
+import { useContext, useState } from "react";
 import StateLogin from "../components/StateLogin.jsx";
 
 const LoginPage = () => {
@@ -18,9 +13,17 @@ const LoginPage = () => {
   const router = useRouter();
   const [isLoading, setisLoading] = useState(false);
 
-  return (
-      <StateLogin />
-  )
+
+  return <StateLogin />;
 };
 
 export default LoginPage;
+
+/*
+ return (
+    <SessionProvider session={session}>
+      <Component {...pageProps} />
+      <StateLogin />
+    </SessionProvider>
+  );
+*/

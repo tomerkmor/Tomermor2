@@ -1,4 +1,8 @@
 
+@tailwind components;
+@tailwind utilities;
+
+
 html{
   overflow-x: hidden;
 }
@@ -9,6 +13,8 @@ html{
   --background-color: #ffffff; 
   --primary-background-color: #6E07F3;
   --primary2-background-color: #242424;
+  --ecommerce-primary-background-color: linear-gradient(180deg, #253c3c, #1d4949);
+;
   --color: #1b254c;
   --primary-color: #ffffff;
   --border-color: #E6ECF8;
@@ -95,5 +101,6 @@ em{
     font-size: 3rem;
   }
 }
+
 
 

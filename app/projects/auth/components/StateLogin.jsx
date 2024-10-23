@@ -2,14 +2,25 @@ import { useContext, useState } from "react";
 import Input from "./Input";
 import { isEmail, isNotEmpty, hasMinLength } from "../login/util/validation";
 import { useInput } from "../login/hooks/useInput";
-
 import classes from "./StateLogin.module.css";
 import { AuthContext } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
+import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
+
 
 // good for every key storke validation
 export default function Login({ onRegister }) {
+  const { data: session } = useSession()
+  /*
+  if(!session) {
+    return 'not logged in'
+  }
+  return <>
+    Not signed in <br/>
+    <button onClick={() => signIn('google')}>Sign in</button>
+  </>
+*/
   const [error, setError] = useState("");
 
   const {
@@ -82,7 +93,7 @@ export default function Login({ onRegister }) {
     <form className={classes.form} onSubmit={handleSubmit}>
       <h2>Login</h2>
 
-      {token ? (
+      {(token || session) ? (
         <h2>
           You are successfully logged in!
           <br />
@@ -116,9 +127,20 @@ export default function Login({ onRegister }) {
             />
           </div>
 
-          <p style={{ margin: 0, fontSize: '0.9rem'}}>
-            Don't have an account? <Link href="register" className={classes['sign-up']}>Sign Up</Link>
+          <p style={{ margin: 0, fontSize: "0.9rem" }}>
+            Don't have an account?{" "}
+            <Link href="register" className={classes["sign-up"]}>
+              Sign Up
+            </Link>
           </p>
+
+          <button
+            type="button"
+            onClick={() => signIn("google")}
+            className="bg-mastik p-2 mt-2 text-white rounded-lg border-none"
+          >
+            Login with Google
+          </button>
 
           <p className={classes["form-actions"]}>
             <button type="button" onClick={handleReset}>

@@ -14,6 +14,8 @@ const RegisterForm = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState('');
+  
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
 
@@ -33,7 +35,7 @@ const RegisterForm = () => {
   };
 
   const handleConfirmPasswordChange = (e) => {
-    setPassword(e.target.value);
+    setConfirmPassword(e.target.value);
   };
 
   // Handle form submission
@@ -53,6 +55,10 @@ const RegisterForm = () => {
       return;
     }
 
+    if(password !== confirmPassword){
+      setError("Passwords do no match!");
+      return;
+    }
     // Reset error message if validation passes
     setError("");
 
@@ -121,11 +127,11 @@ const RegisterForm = () => {
               id="password"
               type="password"
               name="password"
-              value={password}
+              value={confirmPassword}
               onChange={handleConfirmPasswordChange}
             />
           </div>
-          
+
           {message && <p>{message}</p>}
           {error && <span style={{ color: "red" }}>{error}</span>}
           <p className={classes["form-actions"]}>
