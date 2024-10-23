@@ -10,6 +10,7 @@ import Link from "next/link";
 
 // Good for every keystroke validation
 export default function Login({ onRegister }) {
+  const { data: session, status } = useSession();
   const [error, setError] = useState("");
 
   const {
@@ -67,18 +68,32 @@ export default function Login({ onRegister }) {
       localStorage.setItem("token", data.token);
 
       // Redirect to the next page or reload
-      router.push("/projects/ecommerce");
+      router.push("/projects/auth/login");
     } catch (error) {
       console.error("Login error:", error);
       setError(error.message);
     }
   };
 
+  // Handling loading state
+  if (status === "loading") {
+    return <p>Loading...</p>; 
+  }
+
   return (
     <form className={classes.form} onSubmit={handleSubmit}>
       <h2>Login</h2>
 
-      {!token && (
+      {token || session ? (
+        <>
+          <h2>
+            You are successfully logged in!
+            <br />
+            Feel free to logout from the navbar
+          </h2>
+          <Link href="/projects/ecommerce">Ecommerce Website</Link>
+        </>
+      ) : (
         <>
           <div className={classes["control-row"]}>
             <Input
@@ -112,6 +127,14 @@ export default function Login({ onRegister }) {
               Sign Up
             </Link>
           </p>
+
+          <button
+            type="button"
+            onClick={() => signIn("google")}
+            className="bg-mastik p-2 mt-2 text-white rounded-lg border-none"
+          >
+            Login with Google
+          </button>
 
           <p className={classes["form-actions"]}>
             <button type="button" onClick={handleReset}>

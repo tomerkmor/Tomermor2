@@ -1,5 +1,6 @@
 const dummyData = [
   {
+    id: '',
     img: "/projects/tictactoe.jpg",
     title: "Tic Tac Toe",
     description:
@@ -11,6 +12,7 @@ const dummyData = [
     techs: ['React', 'JavaScript', 'Vanilla CSS' ]
   },
   {
+    id: '2',
     img: "/projects/countdown.jpg",
     title: "Reaction Game",
     description: "Try to click exactly in time.",
@@ -21,6 +23,7 @@ const dummyData = [
     techs: ['React', 'JavaScript', 'Vanilla CSS' ]
   },
   {
+    id: '3',
     img: "/projects/project-management.jpg",
     title: "Projects Management",
     description: "Manage, organize and keep track of your tasks!",
@@ -34,6 +37,7 @@ const dummyData = [
     techs: ['React', 'JavaScript', 'Tailwind CSS' ]
   },
   {
+    id: '4',
     img: "/projects/place-picker.jpg",
     title: "Place Picker",
     description: "Pick your dream vaction!",
@@ -49,6 +53,7 @@ const dummyData = [
     techs: ['React', 'useContext','JavaScript', 'Vanilla CSS']
   },
   {
+    id: '5',
     img: "/projects/react-game.jpg",
     title: "React Game",
     description: "Test your knowledge about react!",
@@ -58,6 +63,7 @@ const dummyData = [
     github: 'https://github.com/tomerkmor/React-Repo/tree/master/08%20-%20React%20Quiz',
     techs: ['React', 'useContext','JavaScript', 'Vanilla CSS']
   },{
+    id: '6',
     img: "/projects/authentication.jpg",
     title: "Authentication Forms",
     description: "Login and Register with bcyrpt.",

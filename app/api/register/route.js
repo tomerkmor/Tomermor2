@@ -1,13 +1,12 @@
-import clientPromise from "@/lib/db"; // Import the MongoDB client connection promise
+import connectToDB from "@/lib/db"; // Adjust the import path as needed
 import bcrypt from "bcrypt";
+import User from "@/models/User"; // Import your User model
 
 export async function POST(req, res) {
+  await connectToDB(); // Ensure the database is connected
+  console.log("trying to access the request..");
+
   try {
-    const client = await clientPromise; // Get MongoDB client
-    const db = client.db('websiteData'); // Access the specific database
-
-    console.log("trying to access the request..");
-
     const { username, email, password } = await req.json(); // Parse JSON body
 
     // Validate input
@@ -19,10 +18,7 @@ export async function POST(req, res) {
     }
 
     // Check if username or email already exists
-    const existingUser = await db.collection('users').findOne({
-      $or: [{ username }, { email }]
-    });
-
+    const existingUser = await User.findOne({ $or: [{ username }, { email }] });
     if (existingUser) {
       if (existingUser.username === username) {
         return new Response(
@@ -40,16 +36,13 @@ export async function POST(req, res) {
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create a new user object
-    const newUser = { username, email, password: hashedPassword };
+    // Create a new user
+    const newUser = new User({ username, email, password: hashedPassword });
+    await newUser.save(); // Save the user to the database
 
-    // Insert the new user into the 'users' collection
-    await db.collection('users').insertOne(newUser);
-
-    console.log('new account created!');
-
+    console.log('new account created!')
     return new Response(
-      JSON.stringify({ message: "User registered successfully! Redirecting..." }),
+      JSON.stringify({ message: "User registered successfully! redirrecting..." }),
       { status: 201 }
     );
   } catch (error) {

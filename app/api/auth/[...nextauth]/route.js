@@ -17,11 +17,8 @@ const authOptions = {
     error: '/auth/error', // Custom error page
   },
   secret: process.env.NEXTAUTH_SECRET,
-  callbacks: {
-    async redirect({ url, baseUrl }) {
-      return baseUrl;
-    },
-  },
+
+  
 };
 
 const handler = NextAuth(authOptions);

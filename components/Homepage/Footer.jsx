@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Footer.module.css";
-import Social from "../RightSide/Social";
+import Social from "../UI/Social";
 import ContactForm from "./ContactForm";
 const Footer = ({ openForm }) => {
   let cssClasses;

@@ -1,6 +1,6 @@
-import connectToDB from '@/lib/db'; // Adjust path to your DB connection
+import connectToDB from '@/lib/db'; 
 import bcrypt from 'bcrypt';
-import User from '@/models/User'; // Your User model
+import User from '@/models/User'; 
 import jwt from 'jsonwebtoken'; // Use JWT for token generation
 
 export async function POST(req) {
@@ -23,10 +23,12 @@ export async function POST(req) {
     }
 
     // Generate a JWT token for authentication
-    const token = jwt.sign({ userId: user._id }, 'your_jwt_secret', { expiresIn: '1h' });
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
     return new Response(JSON.stringify({ message: 'Login successful', token }), { status: 200 });
   } catch (error) {
     return new Response(JSON.stringify({ error: 'An error occurred' }), { status: 500 });
   }
 }
+
+

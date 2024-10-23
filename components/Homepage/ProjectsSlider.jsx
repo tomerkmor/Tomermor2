@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef } from "react";
 import dummyData from "@/data/projectsData";
 import classes from "./ProjectsSlider.module.css";
 
@@ -15,18 +15,15 @@ const ProjectsSlider = forwardRef((props, ref) => {
 
         <ul className={classes.projects}>
           {dummyData.map((project) => (
-            <li key={project} className={classes.itemList}>
+            <li key={project.id} className={classes.itemList}>
               <a href={project.link}>
-                {
-                  <Image
-                    src={project.img}
-                    width={500}
-                    height={500}
-                    alt="Project"
-                    layout="responsive"
-                    object-fit="cover"
-                  />
-                }
+                <Image
+                  src={project.img}
+                  width={500}
+                  height={500}
+                  alt="Project"
+                  style={{ objectFit: "cover" }} // Correct way to set object-fit
+                />
               </a>
 
               <div className={classes.projectContent}>
@@ -34,8 +31,8 @@ const ProjectsSlider = forwardRef((props, ref) => {
                 <p>{project.description}</p>
 
                 <div className={classes.techs}>
-                  {project.techs.map((tech) => (
-                    <p>{tech}</p>
+                  {project.techs.map((tech, index) => (
+                    <p key={index}>{tech}</p> // Add key to nested map
                   ))}
                 </div>
 

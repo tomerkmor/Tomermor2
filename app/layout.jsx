@@ -66,9 +66,7 @@ export default function RootLayout({ children }) {
 // Main component to apply theme styles
 const MainComponent = ({ children }) => {
   const { theme, backgroundColors } = useContext(ThemeContext);
-  return (
-    <div style={{ background: backgroundColors[theme], minHeight: "100vh" }}>
-      {children}
-    </div>
-  );
+  const background = backgroundColors[theme] || "#ffffff"; // Fallback to white
+
+  return <div style={{ background, minHeight: "100vh" }}>{children}</div>;
 };

@@ -5,7 +5,7 @@ import { createContext, useContext, useState } from "react";
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("");
+  const [theme, setTheme] = useState("portfolio");
 
   const backgroundColors = {
     portfolio: "#ffffff",

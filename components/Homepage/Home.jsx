@@ -4,7 +4,7 @@ import tomerImg from "@/public/profileImg.jpeg";
 import Image from "next/image";
 import Button from "../UI/Button";
 import Button2 from "../UI/Button2";
-import Social from "../RightSide/Social";
+import Social from "../UI/Social";
 
 const Home = forwardRef((props, ref) => {
   const [message, setMessage] = useState(null);

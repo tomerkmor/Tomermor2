@@ -14,8 +14,8 @@ const RegisterForm = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState('');
-  
+  const [confirmPassword, setConfirmPassword] = useState("");
+
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
 
@@ -55,7 +55,7 @@ const RegisterForm = () => {
       return;
     }
 
-    if(password !== confirmPassword){
+    if (password !== confirmPassword) {
       setError("Passwords do no match!");
       return;
     }
@@ -132,10 +132,10 @@ const RegisterForm = () => {
             />
           </div>
 
-          {message && <p className="text-red-500">{message}</p>}
-          {error && <span style={{ color: "red" }}>{error}</span>}
+          {message && <p className="text-green-500">{message}</p>}
+          {error && <p className="text-red-500">{error}</p>}
           <p className={classes["form-actions"]}>
-            <button type="button">Reset</button>
+            <button type="reset">Reset</button>
             <button className={classes["form-priamry-button"]}>Register</button>
           </p>
         </form>
