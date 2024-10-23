@@ -42,6 +42,7 @@ const ProtectedPage = () => {
         <Link href="projects/place-planner">Place Planner</Link>
         <Link href="projects/react-quiz">React Quiz</Link>
         <Link href="projects/auth/login">Authentication</Link>
+        <Link href="projects/ecommerce">E-commerce</Link>
       </div>
     </div>
   );

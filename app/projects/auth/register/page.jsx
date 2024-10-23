@@ -132,7 +132,7 @@ const RegisterForm = () => {
             />
           </div>
 
-          {message && <p>{message}</p>}
+          {message && <p className="text-red-500">{message}</p>}
           {error && <span style={{ color: "red" }}>{error}</span>}
           <p className={classes["form-actions"]}>
             <button type="button">Reset</button>

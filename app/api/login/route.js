@@ -1,4 +1,4 @@
-import connectToDB from '@/utils/db'; // Adjust path to your DB connection
+import connectToDB from '@/lib/db'; // Adjust path to your DB connection
 import bcrypt from 'bcrypt';
 import User from '@/models/User'; // Your User model
 import jwt from 'jsonwebtoken'; // Use JWT for token generation
