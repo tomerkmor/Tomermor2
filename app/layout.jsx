@@ -6,7 +6,6 @@ import "./globals.css";
 import { AuthProvider } from "../context/AuthContext";
 import { ThemeProvider, ThemeContext } from "@/context/ThemeContext"; // Ensure the path is correct
 import { SessionProvider } from "next-auth/react"; // Import SessionProvider
-import { getSession } from "next-auth/react"; // Import getSession
 import React, { useContext, useEffect, useState } from "react";
 
 const geistSans = localFont({
@@ -22,42 +21,29 @@ const geistMono = localFont({
 
 // Main layout component
 export default function RootLayout({ children }) {
-  const [session, setSession] = useState(null);
-
-  useEffect(() => {
-    const fetchSession = async () => {
-      const sessionData = await getSession();
-      setSession(sessionData);
-    };
-
-    fetchSession();
-  }, []);
-
   return (
     <ThemeProvider>
       <AuthProvider>
-        <SessionProvider session={session}>
-          <html lang="en">
-            <head>
-              <meta charSet={"UTF-8"} />
-              <meta
-                name="viewport"
-                content="width=device-width, initial-scale=1.0"
-              />
-              <title>React App</title>
-              <link
-                href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap"
-                rel="stylesheet"
-              />
-            </head>
-            <body>
-              <MainComponent>
-                <div id="modal"></div>
-                <div className="main-container">{children}</div>
-              </MainComponent>
-            </body>
-          </html>
-        </SessionProvider>
+        <html lang="en">
+          <head>
+            <meta charSet={"UTF-8"} />
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1.0"
+            />
+            <title>React App</title>
+            <link
+              href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap"
+              rel="stylesheet"
+            />
+          </head>
+          <body>
+            <MainComponent>
+              <div id="modal"></div>
+              <div className="main-container">{children}</div>
+            </MainComponent>
+          </body>
+        </html>
       </AuthProvider>
     </ThemeProvider>
   );
