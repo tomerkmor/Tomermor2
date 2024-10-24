@@ -2,7 +2,7 @@ import React from "react";
 
 const Content = ({ children }) => {
   return (
-    <div className="bg-white flex-grow my-2 mr-2 rounded-lg p-4">
+    <div className="bg-white flex-grow mt-2 mb-24 mr-2 rounded-lg p-4">
       {children}
     </div>
   );

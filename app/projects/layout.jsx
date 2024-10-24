@@ -1,7 +1,6 @@
-import localFont from "next/font/local";
 
 import NewHeader from "@/components/UI/NewHeader";
-import Container from "./auth/components/Container";
+
 
 export const metadata = {
   title: "Create Next App",

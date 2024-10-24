@@ -1,9 +1,12 @@
 import Link from "next/link";
-import React from "react";
+import { usePathname } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 const Sidebar = () => {
-  const inactiveLink ='flex gap-2 p-1'
-  const activeLink = inactiveLink + ' bg-white text-mastik rounded-l-lg'
+  const inactiveLink = "flex gap-2 p-1";
+  const activeLink = inactiveLink + " bg-white text-mastik rounded-l-lg";
+  const pathname = usePathname()
+
   return (
     <aside className="text-white text-left p-4 pr-0">
       <Link href="/projects/ecommerce/" className="flex gap-2 mb-4 mr-4">
@@ -25,7 +28,10 @@ const Sidebar = () => {
       </Link>
 
       <nav className="p-0 m-0">
-        <Link href="/projects/ecommerce" className={activeLink}>
+        <Link
+          href="/projects/ecommerce"
+          className={pathname === "/projects/ecommerce" ? activeLink : inactiveLink}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -42,7 +48,10 @@ const Sidebar = () => {
           </svg>
           <span>Dashboard</span>
         </Link>
-        <Link href="/projects/ecommerce/products" className={inactiveLink}>
+        <Link
+          href="/projects/ecommerce/products"
+          className={pathname.startsWith("/projects/ecommerce/products") ? activeLink : inactiveLink}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -60,7 +69,10 @@ const Sidebar = () => {
 
           <span>Products</span>
         </Link>
-        <Link href="/projects/ecommerce/orders" className={inactiveLink}>
+        <Link
+          href="/projects/ecommerce/orders"
+          className={pathname.startsWith("/projects/ecommerce/orders") ? activeLink : inactiveLink}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -76,9 +88,12 @@ const Sidebar = () => {
             />
           </svg>
 
-          <spam>Orders</spam>
+          <span>Orders</span>
         </Link>
-        <Link href="/projects/ecommerce/settings" className={inactiveLink}>
+        <Link
+          href="/projects/ecommerce/settings"
+          className={pathname.startsWith("/projects/ecommerce/settings") ? activeLink : inactiveLink}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

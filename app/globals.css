@@ -1,32 +1,64 @@
-
 @tailwind components;
 @tailwind utilities;
 
+.ecommerce {
+  input,
+  textarea {
+    @apply border border-gray-300 rounded-md mb-2 p-0 pl-2 w-full;
+    font-family: inherit; /* Ensure font inheritance */
+    border-width: 2px; /* Set a consistent border width */
+    border-style: solid; /* Set a consistent border style */
 
-html{
+  }
+
+  input:focus,
+  textarea:focus {
+    @apply border-mastik outline-none border-2;
+    border-color: rgb(52 129 129 / var(--tw-border-opacity));
+  }
+
+  textarea {
+    @apply resize-none; /* Prevents resizing */
+    @apply h-32; /* Optional: Sets a height to match the input */
+  }
+
+  h2 {
+    @apply text-mastik mb-2 text-xl;
+  }
+
+  label {
+    @apply text-mastik;
+  }
+
+  .btn-primary {
+    @apply border-none bg-mastik rounded-md text-white px-4 py-1;
+  }
+}
+
+html {
   overflow-x: hidden;
 }
 
-
-
 :root {
-  --background-color: #ffffff; 
-  --primary-background-color: #6E07F3;
+  --background-color: #ffffff;
+  --primary-background-color: #6e07f3;
   --primary2-background-color: #242424;
-  --ecommerce-primary-background-color: linear-gradient(180deg, #253c3c, #1d4949);
-;
+  --ecommerce-primary-background-color: linear-gradient(
+    180deg,
+    #253c3c,
+    #1d4949
+  );
   --color: #1b254c;
   --primary-color: #ffffff;
-  --border-color: #E6ECF8;
+  --border-color: #e6ecf8;
 
-  --your-button-background: oklch(0.76 0.09 200.03); 
-  --your-button-hover-background: #0056b3; 
+  --your-button-background: oklch(0.76 0.09 200.03);
+  --your-button-hover-background: #0056b3;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: #141c3a;
 }
-
 
 body {
   width: 100%;
@@ -39,7 +71,7 @@ body {
   text-align: center;
 }
 
-.main-container{
+.main-container {
   max-width: 1350px;
   margin: 0 auto;
   min-height: 100vh;
@@ -53,55 +85,51 @@ body {
   flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
 }
 
-
-li,p{
+li,
+p {
   margin-top: 0.5rem;
   line-height: 1.4;
 }
 
-ul, ol {
+ul,
+ol {
   list-style-type: none; /* Removes bullet points or numbering */
-  padding: 0;            /* Optional: Removes padding */
-  margin: 0;             /* Optional: Removes margin */
+  padding: 0; /* Optional: Removes padding */
+  margin: 0; /* Optional: Removes margin */
 }
 
-a{
+a {
   text-decoration: none;
   color: inherit;
 }
 
-em{
+em {
   color: var(--primary-background-color);
   font-weight: 800;
-
 }
 
-.mainTitle{
-    font-weight: 800;
-    font-size: 2rem;
-    padding: 5rem 0 0rem 0; 
-    margin:0;
-  }
+.mainTitle {
+  font-weight: 800;
+  font-size: 2rem;
+  padding: 5rem 0 0rem 0;
+  margin: 0;
+}
 @media only screen and (min-width: 1250px) {
-
-
 }
 
 @media screen and (max-width: 1024px) {
   .mainTitle {
-      font-weight: 800;
-      font-size: 3rem;
-  }
-}
-
-@media only screen and (max-width: 550px) {
-  body{
-    text-align: center;
-  }
-  h1,h2{
+    font-weight: 800;
     font-size: 3rem;
   }
 }
 
-
-
+@media only screen and (max-width: 550px) {
+  body {
+    text-align: center;
+  }
+  h1,
+  h2 {
+    font-size: 3rem;
+  }
+}

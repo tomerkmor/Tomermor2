@@ -5,7 +5,6 @@ import { useInput } from "../login/hooks/useInput";
 import classes from "./StateLogin.module.css";
 import { AuthContext } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
-import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 
 // Good for every keystroke validation
@@ -63,8 +62,7 @@ export default function Login({ onRegister }) {
         throw new Error(data.error || "Login failed. Please try again.");
       }
 
-      login(data.token);
-      localStorage.setItem("token", data.token);
+      login(data.token, { username: enteredUsername, email: data.email });
 
       // Redirect to the next page or reload
       router.push("/projects/ecommerce");
@@ -77,7 +75,15 @@ export default function Login({ onRegister }) {
   return (
     <form className={classes.form} onSubmit={handleSubmit}>
       <h2>Login</h2>
-
+      {token && (
+        <>
+          <p>You are already logged-in...</p>
+          <p>
+            Go back to <Link href="/projects/ecommerce" className="text-green-500">E-commerce Website</Link>
+          </p>
+          
+        </>
+      )}
       {!token && (
         <>
           <div className={classes["control-row"]}>

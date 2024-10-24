@@ -36,7 +36,7 @@ export async function POST(req) {
     });
 
     return new Response(
-      JSON.stringify({ message: "Login successful", token }),
+      JSON.stringify({ message: "Login successful", token, username: user.username, email: user.email }),
       { status: 200 }
     );
   } catch (error) {
