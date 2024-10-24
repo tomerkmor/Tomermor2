@@ -5,7 +5,7 @@ import "./globals.css";
 
 import { AuthProvider } from "../context/AuthContext";
 import { ThemeProvider, ThemeContext } from "@/context/ThemeContext"; // Ensure the path is correct
-import { SessionProvider } from "next-auth/react"; // Import SessionProvider
+
 import React, { useContext, useEffect, useState } from "react";
 
 const geistSans = localFont({

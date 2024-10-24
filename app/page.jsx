@@ -9,7 +9,7 @@ import AboutMe from "../components/Homepage/AboutMe";
 import ProjectsSlider from "../components/Homepage/ProjectsSlider";
 import Contact from "../components/Homepage/Contact";
 import "../components/UI/fontAwesome";
-import { useSession } from "next-auth/react"; // Use NextAuth's hook to get the session
+
 
 function MyApp() {
   const { theme, setTheme } = useContext(ThemeContext);

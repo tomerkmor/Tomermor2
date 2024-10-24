@@ -5,7 +5,7 @@ import { useInput } from "../login/hooks/useInput";
 import classes from "./StateLogin.module.css";
 import { AuthContext } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
-import { signIn, useSession } from "next-auth/react";
+
 import Link from "next/link";
 
 // Good for every keystroke validation
