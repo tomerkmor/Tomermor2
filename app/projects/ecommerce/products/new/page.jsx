@@ -9,7 +9,8 @@ const NewProduct = () => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [error, setError] = useState("");
-
+  const [message, setMessage] = useState('');
+  
   const router = useRouter()
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,10 +19,7 @@ const NewProduct = () => {
       setError("Title is required!");
       return;
     }
-    if (!description) {
-      setError("Description is required!");
-      return;
-    }
+
     if (!price) {
       setError("Price is required!");
       return;
@@ -31,7 +29,7 @@ const NewProduct = () => {
     setError("");
 
     try {
-      const response = await fetch("/api/ecommerce/new-product", {
+      const response = await fetch("/api/ecommerce/products", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

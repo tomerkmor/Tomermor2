@@ -1,7 +1,26 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 // /projects/products
 const ProductsPage = () => {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch("/api/ecommerce/products");
+        if (!response.ok) {
+          throw new Error("Failed to fetch products");
+        }
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
   return (
     <div>
       <h2>Products page</h2>
@@ -11,6 +30,23 @@ const ProductsPage = () => {
       >
         Add New Product
       </Link>
+
+      <table>
+        <thead>
+          <tr>
+            <td>Product name</td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+          {products.map(product => (
+            <tr key={product._id}>
+              <td>{product.title}</td>
+              <td>some buttons..</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
