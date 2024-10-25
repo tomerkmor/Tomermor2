@@ -52,10 +52,9 @@ export async function GET(req) {
       // Fetch specific product by ID
       const product = await Product.findById(id);
       if (!product) {
-        return new Response(
-          JSON.stringify({ error: "Product not found" }),
-          { status: 404 }
-        );
+        return new Response(JSON.stringify({ error: "Product not found" }), {
+          status: 404,
+        });
       }
       return new Response(JSON.stringify(product), { status: 200 });
     } else {
@@ -72,18 +71,20 @@ export async function GET(req) {
   }
 }
 
-
 export async function PUT(req, res) {
   await connectToDB();
   console.log("trying to access the PUT request..");
 
   try {
-    const { productName, productDescription, productPrice, _id } = await req.json(); // Parse JSON body
+    const { productName, productDescription, productPrice, _id } =
+      await req.json(); // Parse JSON body
 
     // Validate input
     if (!productName || !productDescription || !productPrice || !_id) {
       return new Response(
-        JSON.stringify({ error: "All fields are required, including product ID" }),
+        JSON.stringify({
+          error: "All fields are required, including product ID",
+        }),
         { status: 400 }
       );
     }
@@ -91,10 +92,9 @@ export async function PUT(req, res) {
     // Find and update the existing product
     const existingProduct = await Product.findById(_id);
     if (!existingProduct) {
-      return new Response(
-        JSON.stringify({ error: "Product not found" }),
-        { status: 404 }
-      );
+      return new Response(JSON.stringify({ error: "Product not found" }), {
+        status: 404,
+      });
     }
 
     // Update fields
@@ -115,6 +115,40 @@ export async function PUT(req, res) {
     return new Response(
       JSON.stringify({ error: "An error occurred while updating the product" }),
       { status: 500 }
+    );
+  }
+}
+
+export async function DELETE(req) {
+  const { searchParams } = new URL(req.url);
+  const productId = searchParams.get("id");
+
+  if (!productId) {
+    return new Response(JSON.stringify({ error: "Product ID is required" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
+  try {
+    // Perform the deletion logic here, such as deleting the product by ID in your database
+    console.log("Attempting to delete product with ID:", productId);
+    await Product.findByIdAndDelete(productId);
+    console.log("Attempting to delete product with ID:", productId);
+    return new Response(
+      JSON.stringify({ message: "Product deleted successfully" }),
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+  } catch (error) {
+    return new Response(
+      JSON.stringify({ error: "An error occurred while deleting the product" }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      }
     );
   }
 }

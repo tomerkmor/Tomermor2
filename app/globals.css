@@ -29,12 +29,25 @@
     @apply text-mastik;
   }
   .btn-primary {
-    @apply border-none bg-mastik rounded-md text-white px-4 py-1;
+    @apply border-none bg-mastik hover:bg-weakMastik rounded-md text-white px-4 py-1;
+  }
+
+  .btn-delete, .btn{
+    @apply px-4 py-1 rounded-md
+  }
+  .btn-delete{
+    @apply mr-1 border-none bg-red-400 hover:bg-red-900 rounded-md text-white px-4 py-1;
+    @apply bg-red-800 text-white
+  }
+
+  .btn{
+    @apply bg-gray-400 text-white
   }
 
   table.basic {
     @apply w-full border-collapse;
   }
+
 
   table.basic thead tr td {
     @apply bg-weakMastik;
@@ -45,7 +58,7 @@
   }
 
   table.basic a {
-    @apply bg-mastik text-white text-sm py-1 rounded-md px-2 flex inline-flex gap-1;
+    @apply mr-1 text-white text-sm py-1 rounded-md px-2 flex inline-flex gap-1;
   }
 }
 

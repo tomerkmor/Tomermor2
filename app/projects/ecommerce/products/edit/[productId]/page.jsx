@@ -23,9 +23,6 @@ export default function EditProductPage() {
     fetchProduct();
   }, [params]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-  };
 
   if (isLoading) {
     return <div>the page is loading...</div>;

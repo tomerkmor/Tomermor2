@@ -24,8 +24,8 @@ const NewHeader = ({}) => {
   };
 
   const signOutHandler = () => {
+    router.push("/projects/auth/login");
     toggleMenuHandler();
-    signOut();
     logout();
   };
 

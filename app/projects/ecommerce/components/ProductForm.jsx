@@ -99,7 +99,7 @@ const ProductForm = ({
         />
 
         <button type="submit" className="btn-primary">
-          Create
+          Save
         </button>
       </div>
     </form>

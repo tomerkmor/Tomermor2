@@ -11,6 +11,15 @@ const EcommercePage = () => {
   const { theme, setTheme } = useContext(ThemeContext);
   const { userData } = useContext(AuthContext);
 
+  const [isLoading, setIsLoading] = useState(true);
+  
+  useEffect(()=>{
+    setIsLoading(false)
+  }, [])
+
+  if(isLoading){
+    return <h1>The page is loading...</h1>
+  }
   return (
     <>
       <div className="flex justify-between items-center">
