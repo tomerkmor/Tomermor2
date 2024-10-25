@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       colors: {
         mastik: '#348181',
+        weakMastik: 'rgb(127, 172, 172)',
       }
     },
   },

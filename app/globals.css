@@ -8,7 +8,6 @@
     font-family: inherit; /* Ensure font inheritance */
     border-width: 2px; /* Set a consistent border width */
     border-style: solid; /* Set a consistent border style */
-
   }
 
   input:focus,
@@ -29,9 +28,24 @@
   label {
     @apply text-mastik;
   }
-
   .btn-primary {
     @apply border-none bg-mastik rounded-md text-white px-4 py-1;
+  }
+
+  table.basic {
+    @apply w-full border-collapse;
+  }
+
+  table.basic thead tr td {
+    @apply bg-weakMastik;
+  }
+
+  table.basic tr td {
+    @apply border-2 border-solid m-0 p-1 border-gray-200;
+  }
+
+  table.basic a {
+    @apply bg-mastik text-white text-sm py-1 rounded-md px-2 flex inline-flex gap-1;
   }
 }
 

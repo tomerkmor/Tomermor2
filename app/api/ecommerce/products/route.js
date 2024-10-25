@@ -41,15 +41,79 @@ export async function POST(req, res) {
 }
 
 // Handle GET request to fetch all products
-export async function GET(req, res) {
+export async function GET(req) {
+  await connectToDB();
+
+  const { searchParams } = new URL(req.url);
+  const id = searchParams.get("id");
+
   try {
-    await connectToDB();
-    const products = await Product.find();
-    return new Response(JSON.stringify(products), { status: 200 });
+    if (id) {
+      // Fetch specific product by ID
+      const product = await Product.findById(id);
+      if (!product) {
+        return new Response(
+          JSON.stringify({ error: "Product not found" }),
+          { status: 404 }
+        );
+      }
+      return new Response(JSON.stringify(product), { status: 200 });
+    } else {
+      // Fetch all products
+      const products = await Product.find();
+      return new Response(JSON.stringify(products), { status: 200 });
+    }
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    return new Response(
+      JSON.stringify({ error: "An error occurred while fetching products" }),
+      { status: 500 }
+    );
+  }
+}
+
+
+export async function PUT(req, res) {
+  await connectToDB();
+  console.log("trying to access the PUT request..");
+
+  try {
+    const { productName, productDescription, productPrice, _id } = await req.json(); // Parse JSON body
+
+    // Validate input
+    if (!productName || !productDescription || !productPrice || !_id) {
+      return new Response(
+        JSON.stringify({ error: "All fields are required, including product ID" }),
+        { status: 400 }
+      );
+    }
+
+    // Find and update the existing product
+    const existingProduct = await Product.findById(_id);
+    if (!existingProduct) {
+      return new Response(
+        JSON.stringify({ error: "Product not found" }),
+        { status: 404 }
+      );
+    }
+
+    // Update fields
+    existingProduct.title = productName;
+    existingProduct.description = productDescription;
+    existingProduct.price = productPrice;
+
+    // Save the updated product
+    await existingProduct.save();
+
+    console.log("Product updated successfully!");
+    return new Response(
+      JSON.stringify({ message: "Product updated successfully!" }),
+      { status: 200 }
+    );
   } catch (error) {
     console.error(error);
     return new Response(
-      JSON.stringify({ error: "An error occurred while fetching products" }),
+      JSON.stringify({ error: "An error occurred while updating the product" }),
       { status: 500 }
     );
   }
