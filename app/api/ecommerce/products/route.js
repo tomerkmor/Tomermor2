@@ -6,7 +6,7 @@ export async function POST(req, res) {
   console.log("trying to access the request..");
 
   try {
-    const { productName, productDescription, productPrice } = await req.json(); // Parse JSON body
+    const { productName, productDescription, productPrice, productImages } = await req.json(); // Parse JSON body
 
     // Validate input
     if (!productName || !productDescription || !productPrice) {
@@ -21,6 +21,7 @@ export async function POST(req, res) {
       title: productName,
       description: productDescription,
       price: productPrice,
+      images: productImages
     });
     await newProduct.save();
 
@@ -76,8 +77,8 @@ export async function PUT(req, res) {
   console.log("trying to access the PUT request..");
 
   try {
-    const { productName, productDescription, productPrice, _id } =
-      await req.json(); // Parse JSON body
+    const { productName, productDescription, productPrice, productImages, _id } =
+      await req.json(); 
 
     // Validate input
     if (!productName || !productDescription || !productPrice || !_id) {
@@ -101,6 +102,7 @@ export async function PUT(req, res) {
     existingProduct.title = productName;
     existingProduct.description = productDescription;
     existingProduct.price = productPrice;
+    existingProduct.images = productImages;
 
     // Save the updated product
     await existingProduct.save();

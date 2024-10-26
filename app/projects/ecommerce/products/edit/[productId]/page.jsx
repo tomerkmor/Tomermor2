@@ -6,6 +6,7 @@ import ProductForm from "../../../components/ProductForm";
 export default function EditProductPage() {
   const params = useParams();
   const [product, setProduct] = useState(null);
+  console.log(product)
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
