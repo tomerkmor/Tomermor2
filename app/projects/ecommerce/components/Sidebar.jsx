@@ -3,12 +3,12 @@ import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const Sidebar = () => {
-  const inactiveLink = "flex gap-2 p-1";
+  const inactiveLink = "flex gap-2 p-1 hover:bg-weakMastik rounded-l-lg";
   const activeLink = inactiveLink + " bg-white text-mastik rounded-l-lg";
   const pathname = usePathname()
 
   return (
-    <aside className="text-white text-left p-4 pr-0">
+    <aside className="text-white text-left p-4 pr-0 bg">
       <Link href="/projects/ecommerce/" className="flex gap-2 mb-4 mr-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
