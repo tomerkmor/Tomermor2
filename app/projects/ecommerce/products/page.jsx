@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 // /projects/products
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -14,6 +16,7 @@ const ProductsPage = () => {
         }
         const data = await response.json();
         setProducts(data);
+        setIsLoading(false)
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -21,6 +24,13 @@ const ProductsPage = () => {
 
     fetchProducts();
   }, []);
+
+  if(isLoading){
+    return <div>
+      <h1>The page is loading..</h1>
+      <p>Please wait...</p>
+    </div>
+  }
 
   return (
     <div>
