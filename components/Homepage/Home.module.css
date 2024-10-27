@@ -26,10 +26,13 @@
   margin-right: 3rem;
   z-index: 1; /* Ensures image is above stripes */
   box-shadow: 0 0px 180px rgba(110, 7, 243, 0.4); /* Existing shadow */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  
 }
 
 .image:hover{
-  box-shadow: 0 0px 180px rgba(110, 7, 243, 0.8); /* Existing shadow */
+  box-shadow: 0 0px 180px rgba(110, 7, 243, 0.8); 
+  transform: scale(1.1);
 }
 
 
