@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-// /projects/products/new
+
 const ProductForm = ({
   _id,
   title: existingTitle,
@@ -14,110 +14,92 @@ const ProductForm = ({
   const [title, setTitle] = useState(existingTitle || "");
   const [description, setDescription] = useState(existingDescription || "");
   const [price, setPrice] = useState(existingPrice || "");
-  const [selectedFiles, setSelectedFiles] = useState(null); // New images to be uploaded
-  const [imagePreviews, setImagePreviews] = useState(existingImages || []); // Image previews (for display)
-  const [uploadedImages, setUploadedImages] = useState(existingImages || []); // Store uploaded image URLs
+  const [selectedFiles, setSelectedFiles] = useState([]);
+  const [imagePreviews, setImagePreviews] = useState(existingImages || []);
+  const [imagesAreEdited, setImagesAreEdited] = useState(false);
+  
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
 
   const router = useRouter();
 
-  useEffect(() => {
-    //setImagePreviews()
-    
-  }, []);
-
-  const handleUpdatePhoto = async (e) => {
-    const files = e.target?.files;
+  const handleUpdatePhoto = (e) => {
+    setImagesAreEdited(true)
+    const files = Array.from(e.target.files);
     setSelectedFiles(files);
 
-    // Create image previews
-    const previews = [];
-    for (const file of files) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        previews.push(event.target.result);
-        console.log('the rendered images are:')
-        console.log([...previews])
-        setImagePreviews([...previews]);
-      };
-      reader.readAsDataURL(file);
-    }
+    const previews = files.map((file) => URL.createObjectURL(file));
+    setImagePreviews(previews);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!title) {
-      setError("Title is required!");
+    if (!title || !price) {
+      setError("Title and Price are required!");
       return;
     }
 
-    if (!price) {
-      setError("Price is required!");
-      return;
-    }
-
-    // Reset error message if validation passes
     setError("");
 
-    console.log("selected files:");
-    console.log(selectedFiles);
-
     const formData = new FormData();
-
-    // Append existing images and selected files
-    if (selectedFiles) {
-      for (const file of selectedFiles) {
-        console.log("Appending file:", file.name);
-        formData.append("images", file);
-      }
+    if (selectedFiles.length) {
+      selectedFiles.forEach((file) => formData.append("images", file));
     }
+    console.log("Selected Files: ", selectedFiles);
 
-    // Post the form data to the upload pictures
-    const res = await fetch("/api/ecommerce/upload", {
-      method: "POST",
-      body: formData,
-    });
-
-    const { links } = await res.json();
-    if (res.ok) {
-      console.log("Uploaded image URLs:", links);
-    }
-
-    //  save/edit the form
-    const data = {
-      productName: title,
-      productDescription: description,
-      productPrice: price,
-      productImages: links,
-    };
     try {
+      // Post to upload the files to S3
+      console.log("Trying to upload to /api/ecommerce/upload");
+
+      const uploadRes = await fetch("/api/ecommerce/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      console.log(uploadRes);
+
+      const uploadedData = await uploadRes.json();
+      console.log("uploadedData.data:", uploadedData.data);
+      const awsImagesNames = [];
+      uploadedData.data.forEach((item) => {
+        awsImagesNames.push(item.fileName);
+      });
+      console.log("the URLs in aws are:");
+      console.log(awsImagesNames);
+
+      // Check the response
+      if (!uploadRes.ok) throw new Error("Image upload failed");
+      console.log("succeeded in uploading the images!!");
+      console.log("succeeded in uploading the images!!");
+      console.log("succeeded in uploading the images!!");
+
+      // Add uploaded images to the form submission
+      const data = {
+        productName: title,
+        productDescription: description,
+        productPrice: price,
+        productImages: awsImagesNames, // URLS FROM AWS
+      };
+
       if (!_id) {
+        console.log("Trying to create product");
         const response = await fetch("/api/ecommerce/products", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),
         });
 
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || "Creation failed");
-        }
-
-        const successData = await response.json();
-        setMessage(successData.message);
+        if (!response.ok) throw new Error("Creation failed");
       } else {
-        // we are editing - we have an product _id
+        console.log("Trying to edit product");
         const response = await fetch("/api/ecommerce/products", {
           method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ ...data, _id }),
         });
+
+        if (!response.ok) throw new Error("Update failed");
       }
 
       router.push("/projects/ecommerce/products");
@@ -139,48 +121,38 @@ const ProductForm = ({
 
         <label>Photos</label>
         <div className="flex gap-2">
-          <label className="w-24 h-24 text-sm cursor-pointer gap-1 bg-gray-200  rounded-lg border-mastik flex items-center justify-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="size-6 text-gray-500"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5"
-              />
-            </svg>
-            <span className="text-gray-500">Upload</span>
+          <label className="w-24 h-24 text-sm cursor-pointer gap-1 bg-gray-200 rounded-lg flex items-center justify-center">
             <input
               type="file"
+              name="file"
               className="hidden"
               onChange={handleUpdatePhoto}
-              id="images"
-              name="images"
               accept="image/*"
               multiple
             />
+            <span className="text-gray-500">Upload</span>
           </label>
 
           <div className="image-preview-container">
-            {imagePreviews.length > 0 && (
+            {imagePreviews.length > 0 ? (
               <div className="flex gap-2">
-                {imagePreviews.map((image, index) => (
-                  <img
-                    key={index}
-                    src={image}
-                    alt={`preview-${index}`}
-                    className="w-24 h-24 object-cover rounded-md"
-                  />
-                ))}
+                {imagePreviews.map((image, index) => {
+                  const imageUrl = `https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.${process.env.NEXT_PUBLIC_AWS_REGION}.amazonaws.com/${image}`;
+
+                  return (
+                    <img
+                      key={index}
+                      src={imagesAreEdited ? image : imageUrl}
+                      alt={`preview-${index}`}
+                      className="w-24 h-24 object-cover rounded-md"
+                    />
+                  );
+                })}
               </div>
+            ) : (
+              <div>No photos in this product</div>
             )}
           </div>
-          {!imagePreviews?.length && <div>No photos in this product</div>}
         </div>
 
         <label>Description</label>
@@ -202,6 +174,8 @@ const ProductForm = ({
           Save
         </button>
       </div>
+      {error && <p className="text-red-500">{error}</p>}
+      {message && <p className="text-green-500">{message}</p>}
     </form>
   );
 };
